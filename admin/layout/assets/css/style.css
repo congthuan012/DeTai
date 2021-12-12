@@ -11,9 +11,9 @@ body {
   margin: 0;
 }
 
-h1,h2,h3,h4,h5,h6,a>span{
+/* h1,h2,h3,h4,h5,h6,a>span{
   color:white;
-}
+} */
 
 
 a {
@@ -22,9 +22,9 @@ a {
   color: white;
 }
 
-i{
+/* i{
 color: white;
-}
+} */
 
 input:focus::placeholder {
   color: transparent;
@@ -118,6 +118,7 @@ input:focus::placeholder {
 .left-menu>.nav-menu>.menu-header > a * {
   font-size: 20px;
   font-weight: 900;
+  color: white;
 }
 
 .left-menu>.nav-menu>.menu-header > a > i {
@@ -128,6 +129,10 @@ input:focus::placeholder {
 
 .menu-function {
   list-style-type: none;
+}
+
+.menu-function>h4{
+  color:white;
 }
 
 .menu-selection{
@@ -161,15 +166,20 @@ input:focus::placeholder {
   border-radius: 50px 0 0 50px;
 }
 
+.focus>a>i{
+  color: #000000 !important;
+}
+
 .sub-menu>.focus>a,
 .sub-menu>.focus>a>i{
   background: #0f0b0b;
-  color: white;
+  color: white !important;
   text-decoration: underline;
 }
 
 .menu-function > .menu-selection > li > a > i {
   margin-right: 5px;
+  color: white;
 }
 
 .menu-footer{
@@ -362,6 +372,10 @@ th.item-price{
   height: 10%;
 }
 
+.paginate>li>a>span,.paginate>li>a>span>i{
+  color:black;
+}
+
 .next-page>i,
 .previous-page>i,
 .page-number{
@@ -370,7 +384,8 @@ padding: 0 5px;
 
 .choose{
 border-radius: 50%;
-color: white;
+background: black;
+color: white !important;
 }
 
 .right-content>.menu-footer{
@@ -425,7 +440,7 @@ color: white;
 .btn-close,
 .btn-save{
   padding: 10px;
-  width: 200px;
+  width: 50%;
 }
 
 .btn-close{
@@ -530,4 +545,32 @@ padding: 5px 10px;
 
 .sub-menu>li>a>i{
   margin-right: 2px;
+  color: white;
+}
+
+.block-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block-login>form>h1{
+  text-align: center;
+  font-size: 40px;
+}
+
+.block-password{
+  position: relative;
+}
+
+.password-show,
+.password-hide{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.password-show{
+  display: none;
 }
