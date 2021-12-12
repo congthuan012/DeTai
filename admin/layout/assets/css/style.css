@@ -156,7 +156,7 @@ input:focus::placeholder {
 .sub-menu>li>a:hover,
 .sub-menu>li>a:hover>i{
     background: white;
-    color: #0f0b0b;
+    color: #0f0b0b !important;
     border-radius: 50px 0 0 50px;
 }
 
