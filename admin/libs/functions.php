@@ -8,7 +8,8 @@ function dd($arr)
 
 
 function asset($path = '/'){
-    return 'http://'.$_SERVER['HTTP_HOST'].'/'.$path;
+    // http://localhost/Learn/DeTai/admin/assets/css/style.css
+    return URL.'/'.$path;
 }
 
 function redirect($url, $data = []){
