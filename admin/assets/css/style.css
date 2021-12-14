@@ -460,9 +460,6 @@ color: white !important;
   display: flex;
   justify-content: flex-end;
 }
-.item-name{
-  width: 200px;
-}
 
 .item-status{
   width: 200px;
@@ -573,4 +570,8 @@ padding: 5px 10px;
 
 .password-show{
   display: none;
+}
+
+.user-info>span{
+color:white;
 }
