@@ -18,7 +18,7 @@ function loadRow($pdo, $sql, $params = [])
     try{
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
-        $statement = $statement->fetch(PDO::FETCH_OBJ);
+        $statement = $statement->fetch(PDO::FETCH_ASSOC);
     }catch(PDOException $e)
     {
         $statement = 'Server error: '.$e->getMessage();
@@ -31,7 +31,7 @@ function loadRows($pdo, $sql, $params = []){
     try{
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
-        $statement = $statement->fetchAll(PDO::FETCH_OBJ);
+        $statement = $statement->fetchAll(PDO::FETCH_ASSOC);
     }catch(PDOException $e){
         $statement = 'Server error: '.$e->getMessage();
     }
@@ -48,8 +48,6 @@ function save($pdo, $sql, $params = []){
     return $statement;
 }
 
-// $pdo = connectDb();
-// $sql = 'SELECT * FROM `products` WHERE deleted_at is NULL AND id=?';
-// $params = [1];
-// $a = loadRow($pdo,$sql,$params);
-// var_dump($a);
+function getAll($table){
+ return "SELECT * FROM $table WHERE deleted_at is NULL";
+}

@@ -6,3 +6,4 @@ define('DBNAME','DeTai');
 define('USERNAME','root');
 define('PASSWORD','123456');
 define('OPTION',[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
+define('URL','http://'.$_SERVER['HTTP_HOST'].'/Learn/DeTai/admin');
