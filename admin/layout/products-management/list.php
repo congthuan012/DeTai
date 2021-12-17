@@ -1,8 +1,6 @@
 <?php
 $title = 'List of product';
-
 require_once 'process-list.php';
-
 require_once './layout/widgets/header.php';
 ?>
 
@@ -44,7 +42,7 @@ require_once './layout/widgets/header.php';
             <img src="<?=asset($product['image']&&$product['image']!=''?$product['image']:'assets/img/no-image.png')?>" alt="" />
           </td>
           <td class="item-name"><?= $product['product_name']??'' ?></td>
-          <td class="item-category"><?= $product['category']??'' ?></td>
+          <td class="item-category"><?= $product['category']??'(Chưa phân loại)' ?></td>
           <td class="item-price"><?= number_format($product['price'])??'' ?></td>
 
           <td class="action">

@@ -10,7 +10,7 @@
     <h4>Function</h4>
     <ul class="menu-selection">
       <li class="<?= $folder == 'products-management'?'focus':'' ?>">
-        <a href="products-management"><i class="fa fa-cubes"></i>Products management</a>
+        <a href="<?=URL.'/products-management'?>"><i class="fa fa-cubes"></i>Products management</a>
       </li>
       <li class="<?= $folder == 'categories-management'?'focus':'' ?>">
         <a href="category-management"><i class="fas fa-clipboard-list"></i>Categories Management</a>

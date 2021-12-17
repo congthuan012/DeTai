@@ -16,7 +16,7 @@ function redirect($url, $data = []){
     foreach ($data as $key => $value) {
         $_SESSION['redirect_'.$key]=$value;
     }
-    header('Location'.$url);
+    header('Location:'.$url);
 }
 
 function redirectGet($key)
