@@ -407,7 +407,7 @@ color: white !important;
 }
 
 .form-control{
-  margin-bottom: 15px;
+  margin-top: 15px;
   align-items: baseline;
 }
 
@@ -574,4 +574,14 @@ padding: 5px 10px;
 
 .user-info>span{
 color:white;
+}
+.errors{
+  padding: 3px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, 0.616);
+}
+
+.errors>ul>li{
+  color: white;
 }

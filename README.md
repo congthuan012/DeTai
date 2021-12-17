@@ -8,4 +8,4 @@ B2: tạo nhánh develop mới bằng git branch develop
 - code xong thì add rồi commit lên branch đó
 - qua branch develop pull code về
 - qua branch của mình merge develop
-- xong git push
+- git push để push code -> lên github tạo Pull Request.

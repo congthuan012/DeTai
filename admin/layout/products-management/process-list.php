@@ -2,13 +2,11 @@
 $pdo = connectDb();
 //Số items trên 1 page
 $itemsPerPage = 10;
-
 //Trang hiện tại
 $currentPage = $params[0]??1;
-
 //Tổng số item
-$totalItems = (int)loadRow($pdo,"SELECT count(*) totalItems FROM products WHERE deleted_at is NULL")['totalItems'];
-
+$totalItems = loadRow($pdo,"SELECT count(*) totalItems FROM products WHERE deleted_at is NULL");
+$totalItems = (int)$totalItems['totalItems']??'';
 //Số trang
 $totalPages = (int)($totalItems / $itemsPerPage);
 if($totalItems % $itemsPerPage > 0){
@@ -33,13 +31,13 @@ if(isset($_POST['search_category']) && $_POST['search_category'])
 }
 
 $sql = "SELECT p.id id,p.name product_name,p.price price,p.avatar image,c.name category
-FROM products p JOIN categories c ON p.category = c.id
+FROM products p LEFT JOIN categories c ON p.category = c.id
 WHERE $where
 LIMIT $itemsPerPage OFFSET $offset";
 $products = (array)loadRows($pdo,$sql);
 $sql = getAll('categories');
 $categories = (array)loadRows($pdo,$sql);
-
 //Close connect
 $sql = null;
 $pdo = null;
+?>
