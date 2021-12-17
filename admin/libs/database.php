@@ -51,3 +51,8 @@ function save($pdo, $sql, $params = []){
 function getAll($table){
  return "SELECT * FROM $table WHERE deleted_at is NULL";
 }
+
+function find($col,$val,$table){
+    $pdo = connectDb();
+    return loadRow($pdo,"SELECT * FROM $table WHERE $col like '$val'");
+}
