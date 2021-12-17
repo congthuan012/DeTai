@@ -19,7 +19,7 @@ Các chức năng:
         - Xem, thêm, xóa, cập nhật đơn hàng.
         - Xem, thêm, xóa, cập nhật nhà sản xuất.
         - Cập nhật thông tin cá nhân.
-Xữ lý:
+# Xữ lý:
     a. Khách hàng ko có tài khoản( khách vãn lai)
         - Hiện trang danh sách cá sản phẩm nổi bật, top sale,... Chuyển đến trang chi tiết khi người dùng click vào sản phẩm.
         - Chi tiết sản phẩm.
