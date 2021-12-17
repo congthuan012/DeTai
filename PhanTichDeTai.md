@@ -1,4 +1,4 @@
-﻿Phân tích đề tài
+# Phân tích đề tài
 Các chức năng:
     a. Khách hàng ko có tài khoản( khách vãn lai)
         - Xem danh sách, xem chi tiết, tìm kiếm sản phẩm
@@ -68,4 +68,3 @@ Xữ lý:
             + Administrator -> toàn quyền
             + Quản trị viên khác -> Chỉ làm được những hành động đã được cấp.
             + Không được xóa các user cùng hoặc hơn cấp.
-
