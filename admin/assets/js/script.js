@@ -3,20 +3,24 @@ function PreviewImage(input, id) {
 }
 
 //start show and hide password
-
 var input = document.getElementById("password");
 var hide = document.getElementById("password-hide");
 var show = document.getElementById("password-show");
+if (show && hide) {
+  show.addEventListener("click", function () {
+    this.style.display = "none";
+    hide.style.display = "block";
+    input.type = "password";
+  });
 
-show.addEventListener("click", function () {
-  this.style.display = "none";
-  hide.style.display = "block";
-  input.type = "password";
-});
-
-hide.addEventListener("click", function () {
-  this.style.display = "none";
-  show.style.display = "block";
-  input.type = "text";
-});
+  hide.addEventListener("click", function () {
+    this.style.display = "none";
+    show.style.display = "block";
+    input.type = "text";
+  });
+}
 //end show and hide password
+
+function redirect(url){
+  window.location.href = url;
+}

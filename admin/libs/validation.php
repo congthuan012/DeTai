@@ -1,6 +1,6 @@
 <?php
 function required($value){
-    if(!$value || $value){
+    if(!$value || !$value){
         return false;
     }
     return true;
@@ -21,7 +21,7 @@ function maxLength($value, $length){
 }
 
 function isExist($col,$val,$table){
-    $isExit = find($val,$col,$table);
+    $isExit = find($col,$val,$table)['data'];
     if($isExit){
         return true;
     }
