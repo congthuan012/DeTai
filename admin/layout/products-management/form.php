@@ -1,6 +1,7 @@
 <div class="menu-content">
   <!-- content -->
   <?php require_once './layout/errors/errors.php' ?>
+  <?php require_once './layout/widgets/alert.php' ?>
   <form action="<?= $action ?? '' ?>" method="POST" enctype="multipart/form-data">
     <div class="d-flex">
       <div class="col-6 form-left-content">
@@ -49,7 +50,7 @@
       </div>
     </div>
     <div class="d-flex form-button col-12">
-      <button type="reset" class="btn btn-close btn-gray">Close</button>
+      <button type="reset" onclick="redirect(`http://localhost/DeTai/admin/products-management/list`)" class="btn btn-close btn-gray">Close</button>
       <button type="submit" class="btn btn-save btn-blue">Save</button>
     </div>
   </form>
