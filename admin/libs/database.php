@@ -22,7 +22,7 @@ function loadRow($pdo, $sql, $params = [])
         $code = 200;
     }catch(PDOException $e)
     {
-        $statement = 'Server error: '.$e->getMessage();
+        $data = 'Server error: '.$e->getMessage();
         $code = 500;
     }
 
@@ -70,5 +70,5 @@ function getAll($table){
 
 function find($col,$val,$table){
     $pdo = connectDb();
-    return loadRow($pdo,"SELECT * FROM $table WHERE $col like '$val'");
+    return loadRow($pdo,"SELECT * FROM $table WHERE $col like ?",[$val]);
 }

@@ -40,7 +40,7 @@
           <td class="item-price"><?= number_format($product['price'])??'' ?></td>
 
           <td class="action">
-            <a href="<?=URL.'/products-management/create/'.$product['id']?>"><button class="btn btn-edit">
+            <a href="<?=URL.'/products-management/detail/'.$product['id']?>"><button class="btn btn-edit">
                 <i class="fas fa-edit"></i></button></a>
             <a href=""><button class="btn btn-delete">
                 <i class="fas fa-trash"></i></button></a>
