@@ -575,13 +575,25 @@ padding: 5px 10px;
 .user-info>span{
 color:white;
 }
-.errors{
+.error{
   padding: 3px;
   margin-top: 10px;
   border-radius: 10px;
   background-color: rgba(255, 0, 0, 0.616);
 }
 
-.errors>ul>li{
+.error>ul>li{
   color: white;
+}
+
+.alert-success{
+  padding: 3px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: green;
+}
+
+.alert-success>ul>li{
+  color: white;
+  list-style: none;
 }

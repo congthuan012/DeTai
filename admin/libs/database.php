@@ -18,34 +18,50 @@ function loadRow($pdo, $sql, $params = [])
     try{
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
-        $statement = $statement->fetch(PDO::FETCH_ASSOC);
+        $data = $statement->fetch(PDO::FETCH_ASSOC);
+        $code = 200;
     }catch(PDOException $e)
     {
-        $statement = 'Server error: '.$e->getMessage();
+        $data = 'Server error: '.$e->getMessage();
+        $code = 500;
     }
 
-    return $statement;
+    return [
+        'data'=>$data,
+        'code'=>$code
+    ];
 }
 
 function loadRows($pdo, $sql, $params = []){
     try{
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
-        $statement = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $code = 200;
     }catch(PDOException $e){
-        $statement = 'Server error: '.$e->getMessage();
+        $data = 'Server error: '.$e->getMessage();
+        $code = 500;
     }
-    return $statement;
+    return [
+        'data'=>$data,
+        'code'=>$code
+    ];
 }
 
 function save($pdo, $sql, $params = []){
     try{
         $statement = $pdo->prepare($sql);
-        $statement->execute($params);
+        $data = $statement->execute($params);
+        $code = 200;
     }catch(PDOException $e){
-        $statement = 'Server error: '.$e->getMessage();
+        $data = 'Server error: '.$e->getMessage();
+        $code = 500;
     }
-    return $statement;
+
+    return [
+        'data'=>$data,
+        'code'=>$code
+    ];
 }
 
 function getAll($table){
@@ -54,5 +70,5 @@ function getAll($table){
 
 function find($col,$val,$table){
     $pdo = connectDb();
-    return loadRow($pdo,"SELECT * FROM $table WHERE $col like '$val'");
+    return loadRow($pdo,"SELECT * FROM $table WHERE $col like ?",[$val]);
 }
