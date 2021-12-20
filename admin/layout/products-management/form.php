@@ -42,7 +42,7 @@
         <label class="form-label" for="">Product image</label>
         <div>
           <label class="form-label-file" for="input-image">Chose image...</label>
-          <input id="input-image" name="image" type="file" accept="image/*">
+          <input id="input-image" value="<?=$product['avatar']??''?>" name="image" type="file" accept="image/*">
         </div>
         <div>
           <label for="input-image"><img src="<?= asset($product['avatar']??'assets/img/no-image.png') ?>" id="preview-image" class="preview-image" alt=""></label>
@@ -62,4 +62,11 @@
   input.addEventListener("change", function() {
     PreviewImage(input, 'preview-image')
   })
+
+  // input = document.getElementById('form-control-2')
+  // input.addEventListener('keyup',function(e){
+  //   e.preventDefault();
+  //   var number = input.value;
+  //   input.value = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number);
+  // });
 </script>
