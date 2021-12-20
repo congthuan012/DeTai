@@ -27,5 +27,5 @@ if(isset($arrUrl[2]) && $arrUrl[2]){
     $params = array_values($arrUrl);
     unset($arrUrl);
 }
-$path = 'layout/'.$folder.'/'.$file.'.php';
+$path = 'process/'.$folder.'/'.$file.'.php';
 ?>
