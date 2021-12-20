@@ -24,3 +24,16 @@ if (show && hide) {
 function redirect(url){
   window.location.href = url;
 }
+
+var modal = document.getElementById('modal-confirm');
+function getModalConfirm(action){
+  modal.style.display = "block";
+  document.getElementById('modal-delete').action = action;
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
