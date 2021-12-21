@@ -35,8 +35,8 @@ if(isset($_POST['search_category']) && $_POST['search_category'])
   $category = $_POST['search_category'];
   $where .= " AND p.category_id = $category";
 }
-$sql = "SELECT p.id id,p.name product_name,p.price price,p.avatar image,c.name category
-FROM products p LEFT JOIN categories c ON p.category_id = c.id
+$sql = "SELECT p.id id,p.name ,p.price price,p.avatar,p.category_id
+FROM products p
 WHERE $where
 LIMIT $itemsPerPage OFFSET $offset";
 $products = (array)loadRows($pdo,$sql)['data'];
@@ -47,7 +47,6 @@ $categories = (array)loadRows($pdo,$sql)['data'];
 $sql = null;
 $pdo = null;
 //Close connect
-
 $title = 'List of product';
 require_once './layout/widgets/header.php';
 require_once './layout/products-management/list.php';
