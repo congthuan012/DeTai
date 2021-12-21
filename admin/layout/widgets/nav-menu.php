@@ -13,7 +13,7 @@
         <a href="<?=URL.'/products-management'?>"><i class="fa fa-cubes"></i>Products management</a>
       </li>
       <li class="<?= $folder == 'categories-management'?'focus':'' ?>">
-        <a href="category-management"><i class="fas fa-clipboard-list"></i>Categories Management</a>
+        <a href="<?=URL.'/categories-management'?>"><i class="fas fa-clipboard-list"></i>Categories Management</a>
       </li>
 
       <li class="<?= $folder == 'orders-management'?'focus':'' ?>">

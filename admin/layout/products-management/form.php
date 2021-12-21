@@ -1,3 +1,4 @@
+<?php require_once './layout/widgets/header.php';?>
 <div class="menu-content">
   <!-- content -->
   <?php require_once './layout/errors/errors.php' ?>
@@ -62,11 +63,4 @@
   input.addEventListener("change", function() {
     PreviewImage(input, 'preview-image')
   })
-
-  // input = document.getElementById('form-control-2')
-  // input.addEventListener('keyup',function(e){
-  //   e.preventDefault();
-  //   var number = input.value;
-  //   input.value = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number);
-  // });
 </script>

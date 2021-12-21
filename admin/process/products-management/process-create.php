@@ -40,14 +40,15 @@ if (count($errors) > 0) {
     $category_id = $_POST['category'];
     $producer_id = $_POST['producer'];
     $description = $_POST['description'];
+    $creator = 1;
     $image = $_FILES['image'];
     $dir = 'assets/img/products-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
     $pdo = connectDb();
-    $sql = "INSERT INTO products(`name`,`price`,`category_id`,`producer_id`,`description`,`avatar`,`created_at`) 
-    VALUES(?,?,?,?,?,?,?)";
-    $res = save($pdo,$sql,[$name,$price,$category_id,$producer_id,$description,$path,date('Y-m-d H:i:s')]);
+    $sql = "INSERT INTO products(`name`,`price`,`category_id`,`producer_id`,`description`,`avatar`,`created_by`,`created_at`) 
+    VALUES(?,?,?,?,?,?,?,?)";
+    $res = save($pdo,$sql,[$name,$price,$category_id,$producer_id,$description,$path,$creator,date('Y-m-d H:i:s')]);
     if($res['code'] == 200){
         redirect(URL.'/products-management/create',[
             'msg'=>'Create success!',
