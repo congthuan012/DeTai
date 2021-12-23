@@ -25,7 +25,7 @@ if($_FILES['image']['size']>(8*1024*1024)){
 }
 
 if(count($errors)>0){
-    redirect('/categories-management/create',[
+    redirect('producers-management/create',[
         'errors'=>$errors
     ]);
 }else{
@@ -34,22 +34,22 @@ if(count($errors)>0){
     $creator = (int)$_SESSION['user']['id'];
     $image = $_FILES['image'];
     
-    $dir = 'assets/img/categories-image/';
+    $dir = 'assets/img/producers-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
 
     $pdo = connectDb();
-    $sql = "INSERT INTO categories(`name`,`description`,`avatar`,`created_by`,`created_at`) 
+    $sql = "INSERT INTO producers(`name`,`description`,`avatar`,`created_by`,`created_at`) 
     VALUES(?,?,?,?,?)";
     $res = save($pdo,$sql,[$name,$description,$path,$creator,date('Y-m-d H:i:s')]);
     if($res['code'] == 200){
-        redirect('/categories-management/create',[
+        redirect('producers-management/create',[
             'msg'=>'Create success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect('/categories-management/create',[
+        redirect('categories-management/create',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);
