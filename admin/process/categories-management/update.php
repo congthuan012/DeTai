@@ -41,7 +41,7 @@ if (count($errors) > 0) {
 }else{
     $id = $product['id'];
     $description = $_POST['description'];
-    $updated_by = 1;
+    $updated_by = (int)$_SESSION['user']['id'];
     $fields = '`name` = ?,`description`= ?,`updated_by`= ?,`updated_at` = ?';
     $params = [$name,$description,$updated_by,date('Y-m-d H:i:s')];
     if(file_exists($_FILES['image']['tmp_name']))
