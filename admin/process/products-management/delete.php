@@ -3,7 +3,7 @@ $id = (int)$params[0];
 $pdo = connectDb();
 $product = find('id',$id,'products')['data'];
 if(!$product){
-    redirect(URL.'/products-management/list',[
+    redirect('/products-management/list',[
         'msg' => 'No product found',
         'code'=> 500,
     ]);
@@ -13,13 +13,13 @@ if(!$product){
     $res = save($pdo,$sql,$params);
     
     if($res['code'] == 200){
-        redirect(URL.'/products-management/list',[
+        redirect('/products-management/list',[
             'msg'=>'Delete success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect(URL.'/products-management/list',[
+        redirect('/products-management/list',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);

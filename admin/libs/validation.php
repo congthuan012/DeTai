@@ -1,6 +1,6 @@
 <?php
 function required($value){
-    if(!$value || !$value){
+    if(!isset($value) || !$value){
         return false;
     }
     return true;

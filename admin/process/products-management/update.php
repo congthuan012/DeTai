@@ -42,7 +42,7 @@ $pdo = null;
 $sql = null;
 // validation
 if (count($errors) > 0) {
-    redirect(URL . '/products-management/detail/'.$id, [
+    redirect('/products-management/detail/'.$id, [
         'errors' => $errors
     ]);
 }else{
@@ -73,13 +73,13 @@ if (count($errors) > 0) {
     $pdo = null;
     $sql = null;
     if($res['code'] == 200){
-        redirect(URL.'/products-management/list',[
+        redirect('/products-management/list',[
             'msg'=>'Update success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect(URL.'/products-management/list',[
+        redirect('/products-management/list',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);

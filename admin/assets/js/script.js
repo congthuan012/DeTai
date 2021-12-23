@@ -37,7 +37,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-document.getElementById('close-alert').addEventListener('click',function(){
+var btnClose = document.getElementById('close-alert');
+if(btnClose){
+  btnClose.addEventListener('click',function(){
     document.getElementById('block-alert').style.display = 'none';
-})
+  })
+}

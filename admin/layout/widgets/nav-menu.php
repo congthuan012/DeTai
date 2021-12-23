@@ -2,7 +2,7 @@
   <div class="menu-header">
     <a href="">
       <i class="fas fa-store"></i>
-      <span class="text-uppercase">WebSite Name</span>
+      <span class="text-uppercase">WEB CÂY CẢNH</span>
     </a>
   </div>
 
