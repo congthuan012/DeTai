@@ -25,7 +25,7 @@ if($_FILES['image']['size']>(8*1024*1024)){
 }
 
 if(count($errors)>0){
-    redirect(URL.'/categories-management/create',[
+    redirect('/categories-management/create',[
         'errors'=>$errors
     ]);
 }else{
@@ -43,13 +43,13 @@ if(count($errors)>0){
     VALUES(?,?,?,?,?)";
     $res = save($pdo,$sql,[$name,$description,$path,$creator,date('Y-m-d H:i:s')]);
     if($res['code'] == 200){
-        redirect(URL.'/categories-management/create',[
+        redirect('/categories-management/create',[
             'msg'=>'Create success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect(URL.'/categories-management/create',[
+        redirect('/categories-management/create',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);

@@ -35,7 +35,7 @@ $pdo = null;
 $sql = null;
 // validation
 if (count($errors) > 0) {
-    redirect(URL . '/categories-management/detail/'.$id, [
+    redirect('/categories-management/detail/'.$id, [
         'errors' => $errors
     ]);
 }else{
@@ -64,13 +64,13 @@ if (count($errors) > 0) {
     $pdo = null;
     $sql = null;
     if($res['code'] == 200){
-        redirect(URL.'/categories-management/list',[
+        redirect('/categories-management/list',[
             'msg'=>'Update success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect(URL.'/categories-management/list',[
+        redirect('/categories-management/list',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);

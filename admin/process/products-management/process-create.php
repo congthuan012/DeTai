@@ -31,7 +31,7 @@ if (!file_exists($_FILES['image']['tmp_name'])) {
 }
 // validation
 if (count($errors) > 0) {
-    redirect(URL . '/products-management/create', [
+    redirect('/products-management/create', [
         'errors' => $errors
     ]);
 }else{
@@ -50,13 +50,13 @@ if (count($errors) > 0) {
     VALUES(?,?,?,?,?,?,?,?)";
     $res = save($pdo,$sql,[$name,$price,$category_id,$producer_id,$description,$path,$creator,date('Y-m-d H:i:s')]);
     if($res['code'] == 200){
-        redirect(URL.'/products-management/create',[
+        redirect('/products-management/create',[
             'msg'=>'Create success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect(URL.'/products-management/create',[
+        redirect('/products-management/create',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);

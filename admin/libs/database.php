@@ -72,3 +72,7 @@ function find($col,$val,$table){
     $pdo = connectDb();
     return loadRow($pdo,"SELECT * FROM $table WHERE $col like ?",[$val]);
 }
+
+function login(){
+    return false;
+}
