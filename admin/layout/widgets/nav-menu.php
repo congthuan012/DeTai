@@ -24,8 +24,8 @@
         </ul>
       </li>
 
-      <li class="<?= $folder == 'users-management'?'focus':'' ?>">
-        <a href=""><i class="fa fa-user"></i>Users management</a>
+      <li class="<?= $folder == 'guests-management'?'focus':'' ?>">
+        <a href="<?=URL.'/guests-management'?>"><i class="fa fa-user"></i>Guests management</a>
       </li>
 
       <li class="<?= $folder == 'producers-management'?'focus':'' ?>">
