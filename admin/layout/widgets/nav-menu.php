@@ -32,12 +32,8 @@
         <a href="<?=URL.'/producers-management'?>"><i class="fas fa-users-cog"></i></i>Producers management</a>
       </li>
 
-      <li class="<?= $folder == 'admin-management'?'focus':'' ?>">
-        <a href=""><i class="fas fa-user-shield"></i>Admin management</a>
-      </li>
-
-      <li class="<?= $folder == 'roles-management'?'focus':'' ?>">
-        <a href=""><i class="fa fa-user"></i>Roles management</a>
+      <li class="<?= $folder == 'admins-management'?'focus':'' ?>">
+        <a href="<?=URL.'/admins-management'?>"><i class="fas fa-user-shield"></i>Admins management</a>
       </li>
     </ul>
   </div>

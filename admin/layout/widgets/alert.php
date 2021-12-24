@@ -1,7 +1,14 @@
 <?php
-    $class = redirectGet('code') == 200?'alert-success':'error';
-    $msg = redirectGet('msg');
-    if($class && $msg){
+$class =null;
+$code = redirectGet('code');
+if(isset($code) && $code == 200){
+  $class = 'alert-success';
+}elseif(isset($code) && $code == 500){
+  $class = 'error';
+}
+
+$msg = redirectGet('msg')??'';
+if(isset($class) && isset($msg)){
 ?>
 <div id="block-alert" class="<?=$class??''?> d-flex">
   <div class="col-11">

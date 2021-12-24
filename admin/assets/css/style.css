@@ -495,6 +495,23 @@ color: white !important;
 
 .item-status>span{
   padding: 3px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.item-status>.general{
+  background: orange;
+  color: white;
+}
+
+.item-status>.success{
+  background: rgb(12, 202, 12);
+  color: white;
+}
+
+.item-status>.danger{
+  background: red;
+  color: white;
 }
 
 .success,
