@@ -1,0 +1,6 @@
+---
+Báo cáo:
+	- Thêm trường updated_by ở các bảng.
+	- Thêm trường address ở bảng order.
+	- Chuyển trường status từ order_detail sang order
+	- Thêm trường price order_dertail

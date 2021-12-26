@@ -2,7 +2,7 @@
   <div class="search-container">
     <form action="" method="POST" class="d-flex form-search">
       <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="Product name..." />
-      <select <?= $_POST['search_name']??'' ?> name="search_category" class="input-form" id="">
+      <select name="search_category" class="input-form" id="">
         <option value="" disabled selected>Product category</option>
         <?php foreach($categories as $category): ?>
           <option <?= isset($_POST['search_category']) && $_POST['search_category'] == $category['id']?'selected':'' ?> value="<?=$category['id']?>"><?=$category['name']?></option>

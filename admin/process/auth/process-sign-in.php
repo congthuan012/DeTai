@@ -51,6 +51,7 @@ if(count($errors)>0){
     }
 
     $_SESSION['user'] = $res['data'];
+    
     //check remember
     if (isset($_POST['remember']) && $_POST['remember'] == 1) {
         $time = time() + 3600;

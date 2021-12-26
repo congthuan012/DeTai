@@ -35,10 +35,9 @@
   </form>
   <!-- content -->
 </div>
-<script src="<?= asset('assets/js/script.js') ?>"></script>
 <script>
-  input = document.getElementById('input-image');
-  input.addEventListener("change", function() {
+  document.getElementById('input-image').addEventListener("change", function() {
+    var input = document.getElementById('input-image');
     PreviewImage(input, 'preview-image')
   })
 </script>

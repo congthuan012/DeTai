@@ -37,15 +37,14 @@ if (count($errors) > 0) {
     $username = $_POST['username'];
     $status = $_POST['status']??0;
     $password = password_hash($_POST['username'],PASSWORD_DEFAULT);
-    $description = $_POST['description'];
     $image = $_FILES['image'];
     $dir = 'assets/img/admins-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
     $pdo = connectDb();
-    $sql = "INSERT INTO admins(`name`,`username`,`status`,`password`,`description`,`avatar`,`created_at`) 
+    $sql = "INSERT INTO admins(`name`,`username`,`status`,`password`,`avatar`,`created_at`) 
     VALUES(?,?,?,?,?,?,?)";
-    $res = save($pdo,$sql,[$name,$username,$status,$password,$description,$path,date('Y-m-d H:i:s')]);
+    $res = save($pdo,$sql,[$name,$username,$status,$password,$path,date('Y-m-d H:i:s')]);
     if($res['code'] == 200){
         redirect('admins-management/create',[
             'msg'=>'Create success!',
