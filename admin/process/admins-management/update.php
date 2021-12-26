@@ -42,9 +42,8 @@ if (count($errors) > 0) {
     $name = $_POST['name'];
     $username = $_POST['username'];
     $status = $_POST['status']??0;
-    $description = $_POST['description'];
-    $fields = '`name` = ?,`username` = ?,`status` = ?,`description` = ?,`updated_at` = ?';
-    $params = [$name,$username,$status,$description,date('Y-m-d H:i:s')];
+    $fields = '`name` = ?,`username` = ?,`status` = ?,`updated_at` = ?';
+    $params = [$name,$username,$status,date('Y-m-d H:i:s')];
     if(file_exists($_FILES['image']['tmp_name']))
     {
         $image = $_FILES['image'];

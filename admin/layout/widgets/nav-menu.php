@@ -17,10 +17,10 @@
       </li>
 
       <li class="<?= $folder == 'orders-management'?'focus':'' ?>">
-        <a href="orders-management"><i class="fas fa-boxes"></i>Orders management</a>
+        <a href="<?=URL.'/orders-management'?>"><i class="fas fa-boxes"></i>Orders management</a>
         <ul class="sub-menu">
-          <li class="<?= $file == 'list'?'focus':'' ?>"><a href="orders-management"><i class="fas fa-clipboard-check"></i>Orders waiting for confirmation</a></li>
-          <li class="<?= $file == 'table'?'focus':'' ?>"><a href="orders-management/list.html"><i class="fas fa-clipboard-list"></i>Table Orders</a></li>
+          <li class="<?= $file == 'list'?'focus':'' ?>"><a href="<?=URL.'/orders-management/list'?>"><i class="fas fa-clipboard-list"></i>List of Order</a></li>
+          <li class="<?= $file == 'confirm'?'focus':'' ?>"><a href="<?=URL.'/orders-management/confirm'?>"><i class="fas fa-clipboard-check"></i>Orders waiting for confirmation</a></li>
         </ul>
       </li>
 

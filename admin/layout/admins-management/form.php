@@ -21,11 +21,6 @@
           <label class="d-flex align-items-center col-3 form-label"><input name="status" <?= isset($admin['status']) && $admin['status']==1?'checked':''?> type="checkbox" value="1">Active</label>
         </div>
 
-        <div class="d-flex form-control">
-          <label class="col-3 form-label" for="form-control-5">Description</label>
-          <textarea name="description" id="form-control-5" rows="6" class="col-9 form-text form-label"><?=$admin['description']??''?></textarea>
-        </div>
-
       </div>
       <div class="col-6 form-right-content form-control">
         <label class="form-label" for="">admin image</label>
@@ -45,10 +40,9 @@
   </form>
   <!-- content -->
 </div>
-<script src="<?= asset('assets/js/script.js') ?>"></script>
 <script>
-  input = document.getElementById('input-image');
-  input.addEventListener("change", function() {
+  document.getElementById('input-image').addEventListener("change", function() {
+    var input = document.getElementById('input-image');
     PreviewImage(input, 'preview-image')
   })
 </script>
