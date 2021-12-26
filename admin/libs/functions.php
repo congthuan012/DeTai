@@ -1,6 +1,6 @@
 <?php
 
-function dd($arr)
+function dump($arr)
 {
     echo '<pre>',var_dump($arr),'</pre>';
     exit;
@@ -16,7 +16,7 @@ function redirect($url, $data = []){
     foreach ($data as $key => $value) {
         $_SESSION['redirect_'.$key]=$value;
     }
-    header('Location:'.$url);
+    header('Location:'.URL.'/'.$url);
 }
 
 function redirectGet($key)

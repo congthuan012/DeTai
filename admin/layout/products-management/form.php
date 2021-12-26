@@ -1,3 +1,4 @@
+<?php require_once './layout/widgets/header.php';?>
 <div class="menu-content">
   <!-- content -->
   <?php require_once './layout/errors/errors.php' ?>
@@ -56,17 +57,9 @@
   </form>
   <!-- content -->
 </div>
-<script src="<?= asset('assets/js/script.js') ?>"></script>
 <script>
-  input = document.getElementById('input-image');
-  input.addEventListener("change", function() {
+  document.getElementById('input-image').addEventListener("change", function() {
+    var input = document.getElementById('input-image');
     PreviewImage(input, 'preview-image')
   })
-
-  // input = document.getElementById('form-control-2')
-  // input.addEventListener('keyup',function(e){
-  //   e.preventDefault();
-  //   var number = input.value;
-  //   input.value = new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(number);
-  // });
 </script>

@@ -28,4 +28,11 @@ if(isset($arrUrl[2]) && $arrUrl[2]){
     unset($arrUrl);
 }
 $path = 'process/'.$folder.'/'.$file.'.php';
+$layout = 'layout.php';
+if(!isset($_SESSION['user'])){
+    $layout = 'process/auth/layout.php';
+    if($file != 'process-sign-in')
+        $path = 'process/auth/sign-in.php';
+}
+require_once $layout;
 ?>

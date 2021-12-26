@@ -42,7 +42,7 @@ $pdo = null;
 $sql = null;
 // validation
 if (count($errors) > 0) {
-    redirect(URL . '/products-management/detail/'.$id, [
+    redirect('/products-management/detail/'.$id, [
         'errors' => $errors
     ]);
 }else{
@@ -51,8 +51,9 @@ if (count($errors) > 0) {
     $category_id = $_POST['category'];
     $producer_id = $_POST['producer'];
     $description = $_POST['description'];
-    $fields = '`name` = ?,`price` = ?,`category_id` = ?,`producer_id` = ?,`description`= ?,`updated_at` = ?';
-    $params = [$name,$price,$category_id,$producer_id,$description,date('Y-m-d H:i:s')];
+    $updated_by = (int)$_SESSION['user']['id'];
+    $fields = '`name` = ?,`price` = ?,`category_id` = ?,`producer_id` = ?,`description`= ?,`updated_by` = ?,`updated_at` = ?';
+    $params = [$name,$price,$category_id,$producer_id,$description,$updated_by,date('Y-m-d H:i:s')];
     if(file_exists($_FILES['image']['tmp_name']))
     {
         $image = $_FILES['image'];
@@ -73,13 +74,13 @@ if (count($errors) > 0) {
     $pdo = null;
     $sql = null;
     if($res['code'] == 200){
-        redirect(URL.'/products-management/list',[
+        redirect('products-management/list',[
             'msg'=>'Update success!',
             'code'=>200,
         ]);
     }
     else{
-        redirect(URL.'/products-management/list',[
+        redirect('products-management/list',[
             'msg' => $res['data'],
             'code'=> 500,
         ]);

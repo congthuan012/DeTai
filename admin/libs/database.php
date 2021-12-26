@@ -1,7 +1,6 @@
 <?php
 require_once 'config.php';
 function connectDb(){
-    $connect = 1;
     //taọ chuỗi kết nối
     try{
         $connect = new PDO('mysql:host='.HOST.';port='.PORT.';dbname='.DBNAME,USERNAME,PASSWORD,OPTION);

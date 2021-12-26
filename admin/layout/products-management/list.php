@@ -1,8 +1,8 @@
 <div class="menu-content">
   <div class="search-container">
     <form action="" method="POST" class="d-flex form-search">
-      <input type="text" class="input-form" name="search_name" placeholder="Product name..." />
-      <select <?= $_POST['search_name']??'' ?> name="search_category" class="input-form" id="">
+      <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="Product name..." />
+      <select name="search_category" class="input-form" id="">
         <option value="" disabled selected>Product category</option>
         <?php foreach($categories as $category): ?>
           <option <?= isset($_POST['search_category']) && $_POST['search_category'] == $category['id']?'selected':'' ?> value="<?=$category['id']?>"><?=$category['name']?></option>
@@ -15,6 +15,7 @@
   </div>
   <?php require_once './layout/errors/errors.php'; ?>
   <?php require_once './layout/widgets/alert.php'; ?>
+  
   <div class="content-container d-flex">
     <table>
       <tbody>
@@ -34,16 +35,16 @@
         <tr>
           <td class="item-id"><?=$product['id']?></td>
           <td class="item-image">
-            <img src="<?=asset($product['image']&&$product['image']!=''?$product['image']:'assets/img/no-image.png')?>" alt="" />
+            <img src="<?=asset($product['avatar']&&$product['avatar']!=''?$product['avatar']:'assets/img/no-image.png')?>" alt="" />
           </td>
-          <td class="item-name"><?= $product['product_name']??'' ?></td>
-          <td class="item-category"><?= $product['category']??'(Chưa phân loại)' ?></td>
+          <td class="item-name"><?= $product['name']??'' ?></td>
+          <td class="item-category"><?= find('id',$product['category_id'],'categories')['data']['name']??'(Chưa phân loại)' ?></td>
           <td class="item-price"><?= number_format($product['price'])??'' ?></td>
 
           <td class="action">
             <a href="<?=URL.'/products-management/detail/'.$product['id']?>"><button class="btn btn-edit">
                 <i class="fas fa-edit"></i></button></a>
-            <a onclick="return false" class="btn-delete-product" href="<?=URL.'/products-management/delete/'.$product['id']?>"><button class="btn btn-delete">
+            <a onclick="getModalConfirm('<?=URL.'/products-management/delete/'.$product['id']?>')" class="btn-delete-product"><button class="btn btn-delete">
                 <i class="fas fa-trash"></i></button></a>
           </td>
         </tr>
@@ -89,13 +90,3 @@
 require_once './layout/widgets/modal-confirm.php';
 ?>
 <script src="<?=asset('assets/js/script.js')?>"></script>
-<script>
-var elements = document.getElementsByClassName("btn-delete-product");
-
-for (var i = 0, len = elements.length; i < len; i++) {
-  elements [i].addEventListener("click", function() {
-    var action = this.href;
-    getModalConfirm(action);
-  });
-}
-</script>
