@@ -29,10 +29,10 @@ if(isset($arrUrl[2]) && $arrUrl[2]){
 }
 $path = 'process/'.$folder.'/'.$file.'.php';
 $layout = 'layout.php';
-if(!isset($_SESSION['user'])){
-    $layout = 'process/auth/layout.php';
-    if($file != 'process-sign-in')
-        $path = 'process/auth/sign-in.php';
-}
+//if(!isset($_SESSION['user'])){
+//    $layout = 'process/auth/layout.php';
+//    if($file != 'process-sign-in')
+//        $path = 'process/auth/sign-in.php';
+//}
 require_once $layout;
 ?>
