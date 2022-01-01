@@ -7,4 +7,4 @@ define('DBNAME','DeTai');
 define('USERNAME','root');
 define('PASSWORD','');
 define('OPTION',[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
-define('URL','http://localhost/DeTai/admin');
+define('URL','http://'.$_SERVER['SERVER_NAME'].'/admin');
