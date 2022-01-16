@@ -506,19 +506,40 @@ th.item-price {
   border-radius: 5px;
 }
 
-.item-status > .general {
+.item-status > .general,
+.item-status > .general > i {
   background: orange;
   color: white;
 }
 
-.item-status > .success {
+.item-status > .success,
+.item-status > .success > i {
   background: rgb(12, 202, 12);
   color: white;
 }
 
-.item-status > .danger {
+.item-status > .danger,
+.item-status > .danger > i {
   background: red;
   color: white;
+}
+
+.item-status > .primary,
+.item-status > .primary > i{
+  background: blue;
+  color: white;
+}
+
+.item-status > .secondary,
+.item-status > .secondary > i{
+  background: grey;
+  color: white;
+}
+
+.item-status > .info,
+.item-status > .info > i{
+  background: cyan;
+  color: black;
 }
 
 /* .success,
@@ -536,9 +557,6 @@ th.item-price {
   color: red;
 } */
 
-.item-status > span > i {
-  color: white;
-}
 
 .block-order {
   margin-top: 10px;
@@ -713,4 +731,9 @@ th.item-price {
 .close-alert > i {
   color: white;
   cursor: pointer;
+}
+
+.valid-text {
+  color: red;
+  display: none;
 }

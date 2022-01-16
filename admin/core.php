@@ -12,7 +12,7 @@ function urlProcess(){
 }
 
 $arrUrl = urlProcess();
-$folder = 'products-management';
+$folder = 'products';
 $file = 'list';
 $param = [];
 if(isset($arrUrl[0]) && $arrUrl[0]){
@@ -34,5 +34,13 @@ if(!isset($_SESSION['user'])){
     if($file != 'process-sign-in')
         $path = 'process/auth/sign-in.php';
 }
-require_once $layout;
+if(isset($_GET['method']) && $_GET['method'] == 'ajax')
+{
+    if(file_exists($path))
+        require_once $path;
+    else
+        require_once 'layout/errors/404.php';
+}else{
+    require_once $layout;
+}
 ?>

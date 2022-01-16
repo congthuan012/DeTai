@@ -34,7 +34,7 @@ if(count($errors)>0){
         exit;
     }
 
-    if($res['data']['deleted_at'] != null){
+    if($res['data']['deleted_at'] != null || $res['data']['status'] != 1){
         redirect('auth/sign-in',[
             'code'=>500,
             'msg' => 'This account has been locked'
@@ -58,7 +58,7 @@ if(count($errors)>0){
         setcookie('user', $_SESSION['user'], $time);
     }
 
-    redirect('products-management/list',[
+    redirect('products/list',[
         'code'=>200,
         'msg'=>'Sign in success'
     ]);

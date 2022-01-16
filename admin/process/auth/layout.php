@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebSite Nhóm 5 - Admin</title>
     <link rel="stylesheet" href="<?= asset('assets/css/style.css') ?>" />
-    <link
-      rel="stylesheet"
-      href="<?= asset('assets/css/fontawesome-free-5.15.4-web/css/all.css') ?>"
-    />
+    <link rel="stylesheet" href="<?= asset('assets/css/fontawesome-free-5.15.4-web/css/all.css') ?>"/>
+    <script src="<?= asset('assets/js/jquery-3.6.0.js') ?>"></script>
+    <script src="<?= asset('assets/js/jquery-3.6.0.min.js') ?>"></script>
   </head>
 
   <body>

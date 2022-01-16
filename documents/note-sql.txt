@@ -1,0 +1,15 @@
+#get detail order
+SELECT o.id,o.guest_id,o.address,o.total,o.admin_id,o.created_at,o.`status`,d.`name`,d.avatar,d.price,d.quantity
+FROM orders o
+JOIN (SELECT od.*,p.`name`,p.avatar FROM order_detail od JOIN products p ON p.id = od.product_id) d
+ON o.id = d.order_id
+WHERE o.id = 1
+
+#statistical by category
+SELECT c.title_category_product, SUM(od.product_quantity) 'total_quantity'
+FROM tbl_product p
+JOIN tbl_category_product c ON p.id_category_product = c.id_category_product
+JOIN (SELECT od.product_id,od.product_quantity 
+			FROM tbl_order_details od JOIN tbl_order o ON od.order_code = o.order_code 
+			where o.order_status = 1) od ON p.id_product = od.product_id 
+GROUP BY p.id_category_product
