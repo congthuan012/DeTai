@@ -1,5 +1,5 @@
 # DeTai
-Đề tài web sử dụng html/css/js + php - Nhóm 5 - Huỳnh Công Thuần + Hoàng Ngọc Long
+Đề tài web sử dụng html/css/js + php - Nhóm 5 - Huỳnh Công Thuần
 #Cách sử dụng
 B1: git clone về thư mục www
 B2: tạo nhánh develop mới bằng git branch develop
