@@ -7,10 +7,10 @@ if(isset($params[0],$params[1]) && $params[0] && $params[1])
     if($res['code'] == 200){
         $order = $res['data'];
         if($params[0] == 'accept'){
-            $sql = 'UPDATE orders SET `status` = 2 WHERE id = ?';
+            $sql = 'UPDATE orders SET `status` = "Approve" WHERE id = ?';
             $msg = 'Accept';
         }elseif($params[0] == 'deny'){
-            $sql = 'UPDATE orders SET `status` = 0 WHERE id = ?';
+            $sql = 'UPDATE orders SET `status` = "Deny" WHERE id = ?';
             $msg = 'Deny';
         }
 

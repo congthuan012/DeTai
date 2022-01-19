@@ -33,8 +33,15 @@ if(!isset($_SESSION['user'])){
     $layout = 'process/auth/layout.php';
     if($file != 'process-sign-in')
         $path = 'process/auth/sign-in.php';
+}elseif($_SESSION['user']['role'] != 'admin'){
+    unset($_SESSION['user']);
+    redirect('auth/sign-in',[
+        'msg'=>'Permission deny!',
+        'code'=>500
+    ]);
 }
-if(isset($_GET['method']) && $_GET['method'] == 'ajax')
+
+if((isset($_GET['method']) && $_GET['method'] == 'ajax') || (isset($_POST['method']) && $_POST['method'] == 'ajax'))
 {
     if(file_exists($path))
         require_once $path;
