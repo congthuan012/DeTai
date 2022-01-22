@@ -16,3 +16,5 @@ define('ORDER_STATUS', [
 	'Receiving' => ['info','<i class="fas fa-archive"></i>'],
 	'Complete' 	=> ['success','<i class="fas fa-check"></i>'],
 ]);
+
+define('GUEST_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/guest');

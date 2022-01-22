@@ -25,3 +25,15 @@ function redirectGet($key)
     unset($_SESSION['redirect_'.$key]);
     return $value;
 }
+
+function assetGuest($path = '/'){
+    // http://localhost/Learn/DeTai/guest/assets/css/style.css
+    return URL.'/'.$path;
+}
+
+function redirectGuest($url, $data = []){
+    foreach ($data as $key => $value) {
+        $_SESSION['redirect_'.$key]=$value;
+    }
+    header('Location:'.URL.'/'.$url);
+}
