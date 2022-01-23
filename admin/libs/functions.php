@@ -28,7 +28,7 @@ function redirectGet($key)
 
 function assetGuest($path = '/'){
     // http://localhost/Learn/DeTai/guest/assets/css/style.css
-    return URL.'/'.$path;
+    return GUEST_URL.'/'.$path;
 }
 
 function redirectGuest($url, $data = []){

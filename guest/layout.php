@@ -17,26 +17,76 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="logo">
-                    <img src="" alt="logo">
-                    <label for="">HCT - STORE</label>
-                </div>
+        <div class="row header-menu">
+            <div class="col-3 block-logo">
+                <img src="<?= asset('assets/img/no-image.png') ?>" alt="logo">
+                <label for="">HCT - STORE</label>
             </div>
-            <div class="col-5">
-                <form action="">
+            <div class="col-5 block-search">
+                <form action="" class="form-search">
                     <input id="search" type="text" placeholder="Search...">
                     <label for="search"><i class="fas fa-search"></i></label>
                 </form>
             </div>
-            <div class="col-2">
+            <div class="col-2 block-phone">
+                <i class="fas fa-phone-alt"></i>
                 <a href="tel:123456">+84123123123</a>
             </div>
-            <div class="col-2">
-                <button><i class="fas fa-shopping-cart"></i></button>
-                <div class="block-cart container">
-                    <table></table>
+            <div class="col-2 block-cart">
+                <button id="btn-cart"><i class="fas fa-shopping-cart"></i></button>
+                <div id="cart" class="cart-detail container">
+                    <div class="row block-detail">
+                        <div class="col-7">
+                            <label class="product-name">Product 1</label>
+                            <br>
+                            <label class="product-des">3 x 1000$</label>
+                        </div>
+                        <div class="col-5 block-image">
+                            <img src="<?= asset('assets/img/no-image.png') ?>" alt="">
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row block-detail">
+                        <div class="col-7">
+                            <label class="product-name">Product 1</label>
+                            <br>
+                            <label class="product-des">3 x 1000$</label>
+                        </div>
+                        <div class="col-5 block-image">
+                            <img src="<?= asset('assets/img/no-image.png') ?>" alt="">
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row block-detail">
+                        <div class="col-7">
+                            <label class="product-name">Product 1</label>
+                            <br>
+                            <label class="product-des">3 x 1000$</label>
+                        </div>
+                        <div class="col-5 block-image">
+                            <img src="<?= asset('assets/img/no-image.png') ?>" alt="">
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row block-detail">
+                        <div class="col-7">
+                            <label class="label-total">ToTal:</label>
+                        </div>
+                        <div class="col-5 block-image">
+                            <label for="">10000$</label>
+                        </div>
+                    </div>
+
+                    <div class="row block-button">
+                        <button class="col-6 btn btn-primary">View</button>
+                        <button class="col-6 btn btn-success">Checkout</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,5 +97,12 @@
 </body>
 <script src="<?= asset('assets/js/script.js') ?>"></script>
 <script src="<?= asset('assets/js/sweetalert2.all.min.js') ?>"></script>
+<script>
+    $(function() {
+        $('#btn-cart').click(function() {
+            $('#cart').toggle();
+        })
+    })
+</script>
 
 </html>

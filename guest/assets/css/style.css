@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+}
+
+.col-1 {
+  width: 8.333%;
+}
+
+.col-2 {
+  width: 16.667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.333%;
+}
+
+.col-5 {
+  width: 41.667%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.333%;
+}
+
+.col-8 {
+  width: 66.667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.333%;
+}
+
+.col-11 {
+  width: 91.667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.header-menu {
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+  background: black;
+  color: white;
+  padding: 5px 0;
+}
+
+.block-logo {
+  padding: 0 13px;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.block-logo > img {
+  width: 40px;
+  height: 40px;
+}
+
+.form-search > input {
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  width: 80%;
+  height: 25px;
+}
+
+.block-phone > a {
+  font-style: normal;
+  color: white;
+  text-decoration: none;
+}
+
+.block-cart {
+  text-align: center;
+  position: relative;
+}
+
+.block-cart > button {
+  background: none;
+  color: white;
+  border: none;
+}
+
+.block-cart > button > i {
+  font-size: 20px;
+}
+
+.block-detail{
+  margin: 15px 0;
+  text-align: left;
+}
+
+.cart-detail {
+  display: none;
+  background: white;
+  min-height: 200px;
+  position: absolute;
+  color: black;
+  min-width: -webkit-fill-available;
+  right: 95px;
+  top: 35px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.block-image {
+  position: relative;
+}
+
+.block-image > img {
+  position: absolute;
+  right: 15px;
+  height: 100%;
+  z-index: 2;
+}
+
+.block-image > i {
+  right: 0;
+  position: absolute;
+}
+
+.btn{
+  cursor:pointer;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn-primary {
+  background: blue;
+  color: white;
+  border:  2px solid blue;
+}
+
+.btn-primary:hover {
+  background: white;
+  color: blue;
+  border:  2px solid blue;
+}
+
+.btn-success {
+  background: green;
+  color: white;
+  border: 2px solid green;
+}
+
+.btn-success:hover {
+  background: white;
+  color: green;
+  border: 2px solid green;
+}
+
+.label-total{
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: italic;
+}
