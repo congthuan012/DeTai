@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- header -->
     <div class="container">
         <div class="row header-menu">
             <div class="col-3 block-logo">
@@ -90,10 +91,31 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-
+        <div class="row header-menu">
+            <div class="col-3 menu-item"><a href="1">Home</a></div>
+            <div class="col-3 menu-item"><a href="2">About us</a></div>
+            <div class="col-3 menu-item"><a href="3">Contact</a></div>
+            <div class="col-3 menu-item"><a href="3">Login</a></div>
+            <!-- <div class="col-3 d-flex menu-item">
+                <img src="<?= asset('assets/img/no-image.png') ?>" alt="">
+                <a href="4">Customer</a>
+            </div> -->
+            <div class="col-3 menu-item"><a href="3">Logout</a></div>
         </div>
     </div>
+    <!-- header -->
+
+    <!-- content -->
+    <div class="container">
+        <?php
+        if (file_exists($path))
+            require_once $path;
+        else
+            require_once 'layout/errors/404.php';
+        ?>
+    </div>
+    <!-- content -->
+
 </body>
 <script src="<?= asset('assets/js/script.js') ?>"></script>
 <script src="<?= asset('assets/js/sweetalert2.all.min.js') ?>"></script>
@@ -101,6 +123,11 @@
     $(function() {
         $('#btn-cart').click(function() {
             $('#cart').toggle();
+        });
+
+        $('.menu-item').click(function() {
+            var children = $(this).children('a');
+            children[0].click();
         })
     })
 </script>

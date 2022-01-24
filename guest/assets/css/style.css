@@ -54,6 +54,10 @@ body {
   display: flex;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .header-menu {
   height: 40px;
   justify-content: space-around;
@@ -106,7 +110,7 @@ body {
   font-size: 20px;
 }
 
-.block-detail{
+.block-detail {
   margin: 15px 0;
   text-align: left;
 }
@@ -140,8 +144,8 @@ body {
   position: absolute;
 }
 
-.btn{
-  cursor:pointer;
+.btn {
+  cursor: pointer;
   border-radius: 5px;
   padding: 5px;
 }
@@ -149,13 +153,13 @@ body {
 .btn-primary {
   background: blue;
   color: white;
-  border:  2px solid blue;
+  border: 2px solid blue;
 }
 
 .btn-primary:hover {
   background: white;
   color: blue;
-  border:  2px solid blue;
+  border: 2px solid blue;
 }
 
 .btn-success {
@@ -170,9 +174,72 @@ body {
   border: 2px solid green;
 }
 
-.label-total{
+.label-total {
   color: black;
   font-size: 20px;
   font-weight: 700;
   font-style: italic;
+}
+
+.menu-item {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+}
+
+.menu-item > a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-item > img {
+  width: 40px;
+}
+
+.menu-item:hover,
+.menu-item:hover > a {
+  cursor: pointer;
+  color: black;
+  background: white;
+  text-decoration: none;
+}
+
+.list-product {
+padding: 10px;
+}
+
+.product {
+  cursor: pointer;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  font-size: 30px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.product-image {
+  width: 200px;
+}
+.product-image > img {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.title {
+  font-size: 35px;
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+.product-sale{
+color: red;
+font-style: italic;
+}
+
+.product-price.sale {
+  text-decoration: line-through;
+  font-size: 20px;
 }
