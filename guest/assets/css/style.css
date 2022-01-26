@@ -60,7 +60,7 @@ body {
 
 .header-menu {
   height: 40px;
-  justify-content: space-around;
+  justify-content: right;
   align-items: center;
   background: black;
   color: white;
@@ -116,6 +116,7 @@ body {
 }
 
 .cart-detail {
+  border-radius: 15px;
   display: none;
   background: white;
   min-height: 200px;
@@ -148,30 +149,43 @@ body {
   cursor: pointer;
   border-radius: 5px;
   padding: 5px;
+  border-radius: 1px solid;
 }
 
 .btn-primary {
   background: blue;
   color: white;
-  border: 2px solid blue;
+  border: 1px solid blue;
 }
 
 .btn-primary:hover {
   background: white;
   color: blue;
-  border: 2px solid blue;
+  border: 1px solid blue;
 }
 
 .btn-success {
   background: green;
   color: white;
-  border: 2px solid green;
+  border: 1px solid green;
 }
 
 .btn-success:hover {
   background: white;
   color: green;
-  border: 2px solid green;
+  border: 1px solid green;
+}
+
+.btn-secondary{
+  background: gainsboro;
+  color: black;
+  border: 1px solid gainsboro;
+}
+
+.btn-secondary:hover{
+  background: black;
+  color: gainsboro;
+  border: 1px solid gainsboro;
 }
 
 .label-total {
@@ -186,6 +200,7 @@ body {
   justify-content: center;
   height: 100%;
   display: flex;
+  width: 150px;
 }
 
 .menu-item > a {
@@ -206,7 +221,7 @@ body {
 }
 
 .list-product {
-padding: 10px;
+  padding: 10px;
 }
 
 .product {
@@ -218,14 +233,24 @@ padding: 10px;
   padding: 10px;
   margin: 10px;
   text-align: center;
+  border-radius: 15px;
 }
 
 .product-image {
   width: 200px;
+  height: 250px;
 }
 .product-image > img {
   width: 100%;
-  border-bottom: 1px solid black;
+}
+
+.product > .product-name {
+  border-top: 1px solid black;
+}
+
+.product-type {
+  font-size: 15px;
+  font-style: italic;
 }
 
 .title {
@@ -234,12 +259,93 @@ padding: 10px;
   font-weight: 700;
 }
 
-.product-sale{
-color: red;
-font-style: italic;
+.product-price {
+  font-size: 25px;
+}
+
+.product-sale {
+  color: red;
+  font-style: italic;
+  font-size: 25px;
+}
+
+.block-price {
+  align-items: center;
+}
+
+.block-price > div {
+  margin: 5px;
 }
 
 .product-price.sale {
   text-decoration: line-through;
   font-size: 20px;
+}
+
+.product-action > div > button {
+  width: 100%;
+}
+
+.info {
+  text-align: right;
+}
+
+.social-network {
+  justify-content: right;
+}
+
+.avatar {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+.avatar > img {
+  height: 500px;
+}
+
+.block-form-sign-in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-sign-in {
+  width: 300px;
+  background: #b7e3e3;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.form-sign-in>.title{
+  text-align: center;
+}
+
+.form-control {
+  height: 24px;
+  margin: 3px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 5px;
+}
+
+.form-group {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.form-checkbox{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn-form-sign-in>.btn {
+  height: 35px;
+  width: 48%;
+  margin: 5px;
 }

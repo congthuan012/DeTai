@@ -18,3 +18,4 @@ define('ORDER_STATUS', [
 ]);
 
 define('GUEST_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/guest');
+define('BASE_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/');

@@ -37,3 +37,7 @@ function redirectGuest($url, $data = []){
     }
     header('Location:'.URL.'/'.$url);
 }
+
+function guestHref($url){
+    return BASE_URL.$url;
+}

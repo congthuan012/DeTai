@@ -40,7 +40,6 @@ $layout = 'layout.php';
 //         'code'=>500
 //     ]);
 // }
-
 if((isset($_GET['method']) && $_GET['method'] == 'ajax') || (isset($_POST['method']) && $_POST['method'] == 'ajax'))
 {
     if(file_exists($path))
