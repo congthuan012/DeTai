@@ -1,60 +1,50 @@
-<div class="title">New</div>
-<div class="list-product">
-    <div class="product" data-id="1">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
-    </div>
+<?php
+if (isset($newProducts)) {
+?>
+    <div class="title">New Products</div>
+    <div class="list-product">
 
-    <div class="product" data-id="2">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
+        <?php foreach ($newProducts as $item) : ?>
+            <div class="product">
+                <div class="product-image" data-id="<?= $item['id'] ?? '' ?>"><img src="<?= asset($item['avatar']) ?? '' ?>" alt=""></div>
+                <div class="product-name"><span><?= $item['name'] ?? '' ?></span></div>
+                <div class="product-price"><span><?= number_format($item['price']) ?? '' ?> </span>VND</div>
+                <!-- <div class="product-sale"><span>1,500,000</span>VND</div> -->
+                <div class="row product-action">
+                    <div class="col-6" data-id="<?= $item['id'] ?? '' ?>"><button class="btn btn-primary">View</button></div>
+                    <div class="col-6" data-id="<?= $item['id'] ?? '' ?>"><button class="btn btn-success">Add to cart</button></div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
+<?php } ?>
 
-    <div class="product" data-id="3">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
-    </div>
+<?php
+if (isset($topSale)) {
+?>
+    <div class="title">Best Saler</div>
+    <div class="list-product">
 
-    <div class="product" data-id="4">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
+        <?php foreach ($topSale as $item) : ?>
+            <div class="product">
+                <div class="product-image" data-id="<?= $item['id'] ?? '' ?>"><img src="<?= asset($item['avatar']) ?? '' ?>" alt=""></div>
+                <div class="product-name"><span><?= $item['name'] ?? '' ?></span></div>
+                <div class="product-price"><span><?= number_format($item['price']) ?? '' ?> </span>VND</div>
+                <!-- <div class="product-sale"><span>1,500,000</span>VND</div> -->
+                <div class="row product-action">
+                    <div class="col-6" data-id="<?= $item['id'] ?? '' ?>"><button class="btn btn-primary">View</button></div>
+                    <div class="col-6" data-id="<?= $item['id'] ?? '' ?>"><button class="btn btn-success">Add to cart</button></div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
-
-    <div class="product" data-id="4">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
-    </div>
-
-    <div class="product" data-id="5">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
-    </div>
-
-    <div class="product" data-id="6">
-        <div class="product-image"><img src="<?= asset('assets/img/no-image.png') ?>" alt=""></div>
-        <div class="product-name"><span>Product 1</span></div>
-        <div class="product-price sale"><span>2,000,000 </span>VND</div>
-        <div class="product-sale"><span>1,500,000</span>VND</div>
-    </div>
-</div>
+<?php } ?>
 
 <script>
-    $(function(){
-        $('.product').click(function(){
+    $(function() {
+        $('.product-image').click(function() {
             var id = $(this).data('id');
-            window.location.replace("/products/detail/"+id);
+            window.location.replace("/products/detail/" + id);
         });
     })
 </script>

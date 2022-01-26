@@ -230,7 +230,6 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
-  padding: 10px;
   margin: 10px;
   text-align: center;
   border-radius: 15px;
@@ -242,16 +241,20 @@ body {
 }
 .product-image > img {
   width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
 
-.product > .product-name {
+/* .product > .product-name {
   border-top: 1px solid black;
-}
+} */
 
 .product-type {
   font-size: 15px;
   font-style: italic;
 }
+
+
 
 .title {
   font-size: 35px;
@@ -280,6 +283,10 @@ body {
 .product-price.sale {
   text-decoration: line-through;
   font-size: 20px;
+}
+
+.product-action>div{
+  padding: 5px;
 }
 
 .product-action > div > button {
@@ -348,4 +355,31 @@ body {
   height: 35px;
   width: 48%;
   margin: 5px;
+}
+
+
+.paginate {
+  display: flex;
+  justify-content: end;
+  list-style-type: none;
+  align-items: center;
+  margin: 0;
+  height: 10%;
+}
+
+.paginate > li > a > span,
+.paginate > li > a > span > i {
+  color: black;
+}
+
+.next-page > i,
+.previous-page > i,
+.page-number {
+  padding: 0 5px;
+}
+
+.choose {
+  border-radius: 50%;
+  background: black;
+  color: white !important;
 }

@@ -1,73 +1,78 @@
 <?php
 require_once 'config.php';
-function connectDb(){
+function connectDb()
+{
     //taọ chuỗi kết nối
-    try{
-        $connect = new PDO('mysql:host='.HOST.';port='.PORT.';dbname='.DBNAME,USERNAME,PASSWORD,OPTION);
+    try {
+        $connect = new PDO('mysql:host=' . HOST . ';port=' . PORT . ';dbname=' . DBNAME, USERNAME, PASSWORD, OPTION);
         $connect->query('set names utf8');
-    }catch(PDOException $e)
-    {
-        $connect = "Connect failed: ".$e->getMessage();
+    } catch (PDOException $e) {
+        $connect = "Connect failed: " . $e->getMessage();
     }
     return $connect;
 }
 
 function loadRow($pdo, $sql, $params = [])
 {
-    try{
+    try {
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
         $data = $statement->fetch(PDO::FETCH_ASSOC);
         $code = 200;
-    }catch(PDOException $e)
-    {
-        $data = 'Server error: '.$e->getMessage();
+    } catch (PDOException $e) {
+        $data = 'Server error: ' . $e->getMessage();
         $code = 500;
     }
 
     return [
-        'data'=>$data,
-        'code'=>$code
+        'data' => $data,
+        'code' => $code
     ];
 }
 
-function loadRows($pdo, $sql, $params = []){
-    try{
+function loadRows($pdo, $sql, $params = [])
+{
+    try {
         $statement = $pdo->prepare($sql);
         $statement->execute($params);
         $data = $statement->fetchAll(PDO::FETCH_ASSOC);
         $code = 200;
-    }catch(PDOException $e){
-        $data = 'Server error: '.$e->getMessage();
+    } catch (PDOException $e) {
+        $data = 'Server error: ' . $e->getMessage();
         $code = 500;
     }
     return [
-        'data'=>$data,
-        'code'=>$code
+        'data' => $data,
+        'code' => $code
     ];
 }
 
-function save($pdo, $sql, $params = []){
-    try{
+function save($pdo, $sql, $params = [])
+{
+    try {
         $statement = $pdo->prepare($sql);
         $data = $statement->execute($params);
         $code = 200;
-    }catch(PDOException $e){
-        $data = 'Server error: '.$e->getMessage();
+    } catch (PDOException $e) {
+        $data = 'Server error: ' . $e->getMessage();
         $code = 500;
     }
 
     return [
-        'data'=>$data,
-        'code'=>$code
+        'data' => $data,
+        'code' => $code
     ];
 }
 
-function getAll($table){
- return "SELECT * FROM $table WHERE deleted_at is NULL";
+function getAll($table)
+{
+    $pdo = connectDb();
+    $sql = "SELECT * FROM ? WHERE deleted_at is NULL";
+    return loadRows($pdo, $sql, [$table]);
 }
 
-function find($col,$val,$table){
+function find($col, $val, $table)
+{
     $pdo = connectDb();
-    return loadRow($pdo,"SELECT * FROM $table WHERE $col like ?",[$val]);
+    return loadRow($pdo, "SELECT * FROM $table WHERE $col like ?", [$val]);
 }

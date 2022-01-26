@@ -40,8 +40,7 @@ FROM products p
 WHERE $where
 LIMIT $itemsPerPage OFFSET $offset";
 $products = (array)loadRows($pdo,$sql)['data'];
-$sql = getAll('categories');
-$categories = (array)loadRows($pdo,$sql)['data'];
+$categories = (array)getAll('categories')['data'];
 
 //Close connect
 $sql = null;
