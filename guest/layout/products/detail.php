@@ -9,8 +9,13 @@
         <div class="row block-price">
             <div class="product-price sale"><span>1,000,000</span></div>
             <div class="product-sale"><span>1,000,000</span></div>
+            <span>VND</span>
         </div>
-        <div><span>product description</span></div>
+        <div class="product-description"><span>
+product description description description description description description description
+description description
+description description
+        </span></div>
     </div>
 </div>
 

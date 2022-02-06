@@ -15,6 +15,5 @@
 <div class="col-2 block-cart">
     <button id="btn-cart"><i class="fas fa-shopping-cart"></i></button>
     <div id="cart" class="cart-detail container">
-        <div style="height: 100%;display: flex;align-items: center;width: 100%;justify-content: center;position: absolute;">No Product</div>
     </div>
 </div>

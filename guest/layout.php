@@ -28,7 +28,7 @@
     <!-- header -->
 
     <!-- content -->
-    <div class="container">
+    <div class="container content">
         <?php
         if (file_exists($path))
             require_once $path;
@@ -40,6 +40,7 @@
 
 </body>
 <script src="<?= asset('assets/js/script.js') ?>"></script>
+<script src="<?= assetGuest('assets/js/process-cart.js') ?>"></script>
 <script src="<?= asset('assets/js/sweetalert2.all.min.js') ?>"></script>
 <script>
     $(function() {
@@ -50,7 +51,8 @@
         $('.menu-item').click(function() {
             var children = $(this).children('a');
             children[0].click();
-        })
+        });
+
     })
 </script>
 
