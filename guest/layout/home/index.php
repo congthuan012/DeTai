@@ -1,4 +1,5 @@
 <?php
+require_once './layout/widgets/alert.php';
 if (isset($newProducts)) {
 ?>
     <div class="title">New Products</div>

@@ -76,3 +76,21 @@ function find($col, $val, $table)
     $pdo = connectDb();
     return loadRow($pdo, "SELECT * FROM $table WHERE $col like ?", [$val]);
 }
+
+// function insert
+function insert($table, $data)
+{
+    $pdo = connectDb();
+    $sql = "INSERT INTO $table(";
+    $cols = [];
+    $values = [];
+    foreach ($data as $key => $value) {
+        $cols[] = $key;
+        $values[] = $value;
+    }
+    $sql .= implode(',', $cols);
+    $sql .= ') VALUES (';
+    $sql .= implode(',', array_fill(0, count($cols), '?'));
+    $sql .= ')';
+    return save($pdo, $sql, $values);
+}

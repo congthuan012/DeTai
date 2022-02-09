@@ -47,8 +47,7 @@ function renderMiniCart() {
     success: function (res) {
       var cartData = res.cart;
       var blockCart = $("#cart");
-      console.log(cartData);
-      if (cartData.length == 0) {
+      if (cartData && cartData.length == 0) {
         blockCart.html(
           `<div style="height: 100%;display: flex;align-items: center;width: 100%;justify-content: center;position: absolute;">No Product</div>`
         );

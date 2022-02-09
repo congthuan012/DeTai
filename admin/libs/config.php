@@ -7,7 +7,7 @@ define('DBNAME', 'DeTai');
 define('USERNAME', 'root');
 define('PASSWORD', '');
 define('OPTION', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-define('URL', 'http://' . $_SERVER['SERVER_NAME'] . '/admin');
+define('URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../admin');
 define('ORDER_STATUS', [
 	'Deny' 		=> ['danger','<i class="fas fa-times"></i>'],
 	'Pending' 	=> ['general','<i class="fas fa-spinner"></i>'],
@@ -17,5 +17,5 @@ define('ORDER_STATUS', [
 	'Complete' 	=> ['success','<i class="fas fa-check"></i>'],
 ]);
 
-define('GUEST_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/guest');
-define('BASE_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/');
+define('GUEST_URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../guest');
+define('BASE_URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../');

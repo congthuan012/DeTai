@@ -40,6 +40,7 @@
 
 </body>
 <script src="<?= asset('assets/js/script.js') ?>"></script>
+<script src="<?= assetGuest('assets/js/script.js') ?>"></script>
 <script src="<?= assetGuest('assets/js/process-cart.js') ?>"></script>
 <script src="<?= asset('assets/js/sweetalert2.all.min.js') ?>"></script>
 <script>

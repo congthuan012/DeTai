@@ -25,7 +25,7 @@
     </div>
 
     <div class="d-flex align-items-center justify-content-end block-password">
-        <input name="remember" class="input-form" id="remember" type="checkbox" />
+        <input name="remember" value="1" class="input-form" id="remember" type="checkbox" />
         <label class="form-label" for="remember">Remember me</label>
     </div>
     <div class="d-flex form-button form-control">

@@ -277,6 +277,7 @@ input:focus::placeholder {
 .form-search > select {
   border-radius: 5px;
   padding: 7px;
+  max-width: 200px;
   margin-right: 10px;
   border: 1px solid black;
 }

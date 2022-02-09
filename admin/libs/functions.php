@@ -35,9 +35,14 @@ function redirectGuest($url, $data = []){
     foreach ($data as $key => $value) {
         $_SESSION['redirect_'.$key]=$value;
     }
-    header('Location:'.URL.'/'.$url);
+    header('Location:'.GUEST_URL.'/'.$url);
 }
 
 function guestHref($url){
     return BASE_URL.$url;
+}
+
+/** function check is login */
+function isLogin(){
+    return isset($_SESSION['user']) && $_SESSION['user'];
 }
