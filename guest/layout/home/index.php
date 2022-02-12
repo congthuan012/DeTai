@@ -12,7 +12,7 @@ if (isset($newProducts)) {
                 <div class="product-price"><span><?= number_format($item['price']) ?? '' ?> </span>VND</div>
                 <!-- <div class="product-sale"><span>1,500,000</span>VND</div> -->
                 <div class="row product-action">
-                <div class="col-6 view-cart"><button  data-id="<?= $item['id'] ?? '' ?>" class="btn btn-primary">View</button></div>
+                <div class="col-6"><button  data-id="<?= $item['id'] ?? '' ?>" class="btn btn-primary product-detail">View</button></div>
                 <div class="col-6"><button type="button" data-id="<?= $item['id'] ?? '' ?>" data-url="<?=guestHref('products/add-to-cart')?>"  class="btn btn-add-to-cart btn-success">Add to cart</button></div>
                 </div>
             </div>
@@ -33,7 +33,7 @@ if (isset($topSale)) {
                 <div class="product-price"><span><?= number_format($item['price']) ?? '' ?> </span>VND</div>
                 <!-- <div class="product-sale"><span>1,500,000</span>VND</div> -->
                 <div class="row product-action">
-                <div class="col-6 view-cart"><button  data-id="<?= $item['id'] ?? '' ?>" class="btn btn-primary">View</button></div>
+                <div class="col-6"><button data-id="<?= $item['id'] ?? '' ?>" class="btn btn-primary product-detail">View</button></div>
                 <div class="col-6"><button type="button" data-id="<?= $item['id'] ?? '' ?>" data-url="<?=guestHref('products/add-to-cart')?>"  class="btn btn-add-to-cart btn-success">Add to cart</button></div>
                 </div>
             </div>

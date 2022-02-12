@@ -192,6 +192,18 @@ body {
   border: 1px solid gainsboro;
 }
 
+.btn-danger {
+  background: red;
+  color: white;
+  border: 1px solid red;
+}
+
+.btn-danger:hover {
+  background: white;
+  color: red;
+  border: 1px solid red;
+}
+
 .label-total {
   color: black;
   font-size: 20px;
@@ -419,4 +431,64 @@ body {
 }
 .form-sign-up{
 width: 500px;
+}
+
+.block-product-detail>.product-name{
+  font-size: 30px;
+  font-weight: 700;
+  font-style: bold;
+}
+
+.block-product-detail>.block-price>span{
+  color: red;
+  font-weight: 700;
+}
+
+.block-product-detail>.block-button>.btn-add-to-cart{
+  padding: 10px 40px;
+}
+
+.products-cart{
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+
+.products-cart>tbody>.content,
+.products-cart>tbody>.header{
+  padding: 0;
+  height: 40px;
+}
+
+.products-cart>tbody>.header>th{
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  text-align: left;
+}
+
+.products-cart>tbody>.content>td{
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+}
+
+.block-update-cart{
+  justify-content: right;
+  align-items: center;
+}
+.block-update-cart>button{
+  width: 200px;
+  height: 40px;
+  margin: 5px;
+}
+
+.total-price{
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  text-align: end;
 }

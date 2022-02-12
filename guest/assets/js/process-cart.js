@@ -41,7 +41,7 @@ $(function () {
 
 function renderMiniCart() {
   $.ajax({
-    url: `products/render-mini-cart`,
+    url: `/cart/render-mini-cart`,
     data: { method: "ajax" },
     method: "POST",
     success: function (res) {
@@ -92,7 +92,7 @@ function resultHtml(cartData) {
           </div>
         </div>
         <div class="row block-button">
-            <button class="col-6 btn btn-primary">View</button>
+            <a href="/cart" class="col-6 btn btn-primary view-cart">View</a>
             <button class="col-6 btn btn-success">Checkout</button>
         </div>`;
   return html;
