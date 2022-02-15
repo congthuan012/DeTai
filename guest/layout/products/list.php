@@ -1,3 +1,7 @@
+<?php 
+require_once './layout/errors/errors.php';
+require_once './layout/widgets/alert.php';
+?>
 <div>
     <span class="title">Product</span>
 </div>

@@ -19,7 +19,7 @@
                 $total += $price;
         ?>
                 <tr class="content">
-                    <td class="product-avatar"><img src="<?= asset($value['product_avatar']) ?? '/' ?>" alt=""></th>
+                    <td class="product-avatar"><img src="<?= $value['product_avatar'] ?? '/' ?>" style="width: 125px;" alt=""></th>
                     <td class="product-name"><?= $value['product_name'] ?></th>
                     <td class="product-price"><?= number_format($value['product_price']) ?></td>
                     <td class="product-quantity" style="width: 200px;"><input type="number" name="quantity[<?=$key?>]" value="<?= $value['quantity'] ?>"></td>
@@ -37,7 +37,7 @@
     </table>
     <div class="row block-update-cart">
         <button type="submit" class="btn btn-primary">Cập nhật giỏ hàng</button>
-        <button class="btn btn-success">Checkout</button>
+        <button type="button" onclick="window.location.replace('/cart/checkout');" class="btn btn-success">Checkout</button>
     </div>
 </form>
 <script>

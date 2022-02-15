@@ -1,5 +1,16 @@
 <?php
 
+function urlProcess(){
+    if(isset($_GET['url'])){
+        $url = $_GET['url'];
+        //Loại bỏ ký / thừa và khoảng trắng
+        $url = filter_var(trim($url,'/'));
+        //Tách chuỗi thành mảng
+        $url = explode('/',$url);
+        return $url;
+    }
+}
+
 function dump($arr)
 {
     echo '<pre>',var_dump($arr),'</pre>';
@@ -44,5 +55,15 @@ function guestHref($url){
 
 /** function check is login */
 function isLogin(){
+    if (isset($_COOKIE['user'],$_COOKIE['user']['name']) && $_COOKIE['user']) {
+        $_SESSION['user'] = json_decode($_COOKIE['user']);
+    }
     return isset($_SESSION['user']) && $_SESSION['user'];
+}
+
+function guestLogin(){
+    if (isset($_COOKIE['guest'],$_COOKIE['guest']['name']) && $_COOKIE['guest']) {
+        $_SESSION['guest'] = json_decode($_COOKIE['guest']);
+    }
+    return isset($_SESSION['guest']) && $_SESSION['guest'];
 }

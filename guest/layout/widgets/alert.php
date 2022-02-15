@@ -16,7 +16,7 @@ if(isset($class) && isset($msg)){
       <li><?=$msg??''?></li>
     </ul>
   </div>
-  <div id="close-alert" class="col-1 close-alert">
+  <div id="close-alert" style="text-align: end;" class="col-1 close-alert">
     <i class="fas fa-times-circle"></i>
   </div>
 </div>

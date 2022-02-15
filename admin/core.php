@@ -1,16 +1,4 @@
 <?php
-
-function urlProcess(){
-    if(isset($_GET['url'])){
-        $url = $_GET['url'];
-        //Loại bỏ ký / thừa và khoảng trắng
-        $url = filter_var(trim($url,'/'));
-        //Tách chuỗi thành mảng
-        $url = explode('/',$url);
-        return $url;
-    }
-}
-
 $arrUrl = urlProcess();
 $folder = 'products';
 $file = 'list';

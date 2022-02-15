@@ -93,7 +93,7 @@ function resultHtml(cartData) {
         </div>
         <div class="row block-button">
             <a href="/cart" class="col-6 btn btn-primary view-cart">View</a>
-            <button class="col-6 btn btn-success">Checkout</button>
+            <button onclick="window.location.replace('/cart/checkout');" class="col-6 btn btn-success">Checkout</button>
         </div>`;
   return html;
 }
@@ -107,8 +107,9 @@ function removeFormCart(id){
   })
   .then((willDelete) => {
     if (willDelete) {
+      var __url = $('meta[name="GUEST_URL"]').attr("content");
       $.ajax({
-        url: 'products/remove-form-cart',
+        url: __url+'/products/remove-form-cart',
         data: {'id':id,'method':'ajax'},
         method: "POST",
         success: function (res) {

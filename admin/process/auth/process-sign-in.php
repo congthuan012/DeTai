@@ -56,7 +56,7 @@ if(count($errors)>0){
     //check remember
     if (isset($_POST['remember']) && $_POST['remember'] == 1) {
         $time = time() + 3600;
-        setcookie('user', $_SESSION['user'], $time);
+        setcookie('user', json_encode($_SESSION['user']), $time);
     }
 
     redirect('products/list',[

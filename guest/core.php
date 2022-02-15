@@ -1,16 +1,4 @@
 <?php
-
-function urlProcess(){
-    if(isset($_GET['url'])){
-        $url = $_GET['url'];
-        //Loại bỏ ký / thừa và khoảng trắng
-        $url = filter_var(trim($url,'/'));
-        //Tách chuỗi thành mảng
-        $url = explode('/',$url);
-        return $url;
-    }
-}
-
 $arrUrl = urlProcess();
 $folder = 'home';
 $file = 'index';
@@ -29,17 +17,6 @@ if(isset($arrUrl[2]) && $arrUrl[2]){
 }
 $path = 'process/'.$folder.'/'.$file.'.php';
 $layout = 'layout.php';
-// if(!isset($_SESSION['user'])){
-//     $layout = 'process/auth/layout.php';
-//     if($file != 'process-sign-in')
-//         $path = 'process/auth/sign-in.php';
-// }elseif($_SESSION['user']['role'] != 'admin'){
-//     unset($_SESSION['user']);
-//     redirect('auth/sign-in',[
-//         'msg'=>'Permission deny!',
-//         'code'=>500
-//     ]);
-// }
 if((isset($_GET['method']) && $_GET['method'] == 'ajax') || (isset($_POST['method']) && $_POST['method'] == 'ajax'))
 {
     if(file_exists($path))

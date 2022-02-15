@@ -492,3 +492,14 @@ width: 500px;
   color: black;
   text-align: end;
 }
+.block-checkout,
+.block-close-checkout{
+  padding: 20px;
+}
+
+.block-checkout>button,
+.block-close-checkout>a>button{
+  width: 100%;
+  height: 40px;
+  margin: 5px;
+}

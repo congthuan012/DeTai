@@ -1,6 +1,6 @@
 <?php
 // check not login
-if(isLogin()){
+if(guestLogin()){
     redirectGuest('home/index');
 }
 

@@ -51,8 +51,9 @@ function save($pdo, $sql, $params = [])
 {
     try {
         $statement = $pdo->prepare($sql);
-        $data = $statement->execute($params);
+        $statement->execute($params);
         $code = 200;
+        $data = $pdo->lastInsertId();
     } catch (PDOException $e) {
         $data = 'Server error: ' . $e->getMessage();
         $code = 500;
@@ -91,6 +92,6 @@ function insert($table, $data)
     $sql .= implode(',', $cols);
     $sql .= ') VALUES (';
     $sql .= implode(',', array_fill(0, count($cols), '?'));
-    $sql .= ')';
+    $sql .= ');';
     return save($pdo, $sql, $values);
 }
