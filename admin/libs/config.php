@@ -20,5 +20,5 @@ define('ORDER_STATUS', [
 	'Complete' 	=> ['success','<i class="fas fa-check"></i>'],
 ]);
 
-define('GUEST_URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../guest');
+define('GUEST_URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../guest/');
 define('BASE_URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../');

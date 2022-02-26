@@ -93,6 +93,10 @@ body {
   height: 25px;
 }
 
+.form-search>label :hover{
+  cursor: pointer;
+}
+
 .block-phone > a {
   font-style: normal;
   color: white;

@@ -37,7 +37,7 @@
         </div>
         <br>
         <div class="form-group btn-form-sign-in row">
-            <button class="btn btn-secondary">Cancel</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
             <button class="btn btn-primary btn-sign-in">Sign-up</button>
         </div>
     </form>

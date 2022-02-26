@@ -3,8 +3,12 @@
     <label for="">HCT - STORE</label>
 </div>
 <div class="col-5 block-search">
-    <form action="" class="form-search">
-        <input id="search" type="text" placeholder="Search...">
+    <div class="row">
+        <label class="valid-text" id="valid-search">User name is required!</label>
+    </div>
+    <form id="form-search" action="<?=guestHref('home/search')?>" class="form-search">
+        <input type="text" name="search" placeholder="Search...">
+        <input id="search" id="" type="submit" hidden>
         <label for="search"><i class="fas fa-search"></i></label>
     </form>
 </div>
@@ -17,3 +21,21 @@
     <div id="cart" class="cart-detail container">
     </div>
 </div>
+
+<script>
+    $('#form-search').submit(function() {
+        var flag = true;
+        if (!$('input[name="search"]').val()) {
+            $('#valid-search').show();
+            $('#valid-search').html('Input Search is required!');
+            flag = false;
+        }
+        return flag;
+    });
+
+    $('input[name="search"]').keydown(function() {
+        if ($('input[name=search]').val()) {
+            $('#valid-search').hide();
+        }
+    })
+</script>

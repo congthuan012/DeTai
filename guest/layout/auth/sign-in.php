@@ -32,12 +32,17 @@
         </div>
         <br>
         <div class="form-group btn-form-sign-in row">
-            <button class="btn btn-secondary">Cancel</button>
+        <button type="reset" id="cancel-sign-in" class="btn btn-secondary">Cancel</button>
             <button class="btn btn-primary btn-sign-in">Sign-in</button>
         </div>
     </form>
 </div>
 <script>
+    $('#cancel-sign-in').click(function() {
+        var url = $('meta[name="GUEST_URL"]').attr("content");
+        window.location.href = url;
+    });
+    
     $('#form-sign-in').submit(function() {
         var flag = true;
         if(!$('input[name="username"]').val()){

@@ -15,3 +15,4 @@ if($res['code'] == 200){
     $topSale = $res['data'];
 }
 require_once './layout/home/index.php';
+?>

@@ -13,7 +13,7 @@
     <script src="<?= asset('assets/js/jquery-3.6.0.js') ?>"></script>
     <script src="<?= asset('assets/js/jquery-3.6.0.min.js') ?>"></script>
     <!-- <script src="<?= asset('assets/js/zingchart.min.js') ?>"></script> -->
-    <script src='https://cdn.zingchart.com/zingchart.min.js'></script>
+    <!-- <script src='https://cdn.zingchart.com/zingchart.min.js'></script> -->
 </head>
 
 <body>
