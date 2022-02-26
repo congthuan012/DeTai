@@ -23,7 +23,7 @@ $pdo = connectDb();
 
 /** find first guest by username*/
 $res = find('username', $_POST['username'], 'guests');
-if ($res['code'] != 200) {
+if ($res['code'] != 200 || !$res['data']) {
     redirectGuest('auth/sign-in', [
         'code' => 500,
         'msg' => 'Username is not exist!'

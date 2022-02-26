@@ -68,8 +68,8 @@ function save($pdo, $sql, $params = [])
 function getAll($table)
 {
     $pdo = connectDb();
-    $sql = "SELECT * FROM ? WHERE deleted_at is NULL";
-    return loadRows($pdo, $sql, [$table]);
+    $sql = "SELECT * FROM $table WHERE deleted_at is NULL";
+    return loadRows($pdo, $sql);
 }
 
 function find($col, $val, $table)

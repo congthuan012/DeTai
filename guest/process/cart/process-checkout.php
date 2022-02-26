@@ -78,8 +78,5 @@ foreach($cart as $key => $value){
 }
 $_SESSION['cart'] = null;
 
-redirectGuest('home',[
-    'code' => 200,
-    'msg' => 'Order successfully!'
-]);
+require_once './layout/cart/checkout-success.php';
 ?>

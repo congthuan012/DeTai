@@ -503,3 +503,15 @@ width: 500px;
   height: 40px;
   margin: 5px;
 }
+
+.checkout-title{
+  text-align: center;
+}
+.block-checkout-cart{
+  display: flex;
+  justify-content: center;
+}
+.block-checkout-cart>button{
+  width: 400px;
+  height: 50px;
+}

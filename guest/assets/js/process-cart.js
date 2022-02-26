@@ -1,8 +1,4 @@
 $(function () {
-  $(".product-image").click(function () {
-    var id = $(this).data("id");
-    window.location.replace("/products/detail/" + id);
-  });
   renderMiniCart();
 
   $(".btn-add-to-cart").click(function () {
@@ -40,8 +36,10 @@ $(function () {
 
 
 function renderMiniCart() {
+  var url = $('meta[name="GUEST_URL"]').attr("content");
+  console.log(url);
   $.ajax({
-    url: `/cart/render-mini-cart`,
+    url: url+`/cart/render-mini-cart`,
     data: { method: "ajax" },
     method: "POST",
     success: function (res) {
@@ -80,6 +78,8 @@ function resultHtml(cartData) {
         <hr>`;
     total += value.quantity * value.product_price;
   });
+  var urlCart = $('meta[name="GUEST_URL"]').attr("content")+'/cart';
+  var urlCheckout = $('meta[name="GUEST_URL"]').attr("content")+'/cart/checkout';
   html += `
         <div class="row block-detail">
           <div class="col-5">
@@ -92,8 +92,8 @@ function resultHtml(cartData) {
           </div>
         </div>
         <div class="row block-button">
-            <a href="/cart" class="col-6 btn btn-primary view-cart">View</a>
-            <button onclick="window.location.replace('/cart/checkout');" class="col-6 btn btn-success">Checkout</button>
+            <a href="${urlCart}" class="col-6 btn btn-primary view-cart">View</a>
+            <button onclick="window.location.replace('${urlCheckout}');" class="col-6 btn btn-success">Checkout</button>
         </div>`;
   return html;
 }
