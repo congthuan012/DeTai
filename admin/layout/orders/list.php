@@ -1,6 +1,7 @@
 <div class="menu-content">
   <div class="search-container">
     <form action="" method="POST" class="d-flex form-search">
+      <input name="search_order_id" value="<?= $_POST['search_order_id'] ?? '' ?>" type="text" class="input-form" placeholder="Order id..." />
       <input name="search_guest_id" value="<?= $_POST['search_guest_id'] ?? '' ?>" type="text" class="input-form" placeholder="Guest id..." />
       <select name="search_status" id="" class="input-form">
         <option value="" disabled selected>Status</option>

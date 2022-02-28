@@ -31,6 +31,12 @@ if(isset($_POST['search_guest_id']) && $_POST['search_guest_id'])
   $where .= " AND `guest_id` = ?";
 }
 
+if(isset($_POST['search_order_id']) && $_POST['search_order_id'])
+{
+  array_push($params,(string)$_POST['search_order_id']);
+  $where .= " AND `id` = ?";
+}
+
 if(isset($_POST['search_status']))
 {
   array_push($params,$_POST['search_status']);

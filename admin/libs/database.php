@@ -95,3 +95,20 @@ function insert($table, $data)
     $sql .= ');';
     return save($pdo, $sql, $values);
 }
+
+//function update
+function update($table, $data, $id)
+{
+    $pdo = connectDb();
+    $sql = "UPDATE $table SET ";
+    $cols = [];
+    $values = [];
+    foreach ($data as $key => $value) {
+        $cols[] = $key . ' = ?';
+        $values[] = $value;
+    }
+    $sql .= implode(',', $cols);
+    $sql .= ' WHERE id = ?';
+    $values[] = $id;
+    return save($pdo, $sql, $values);
+}

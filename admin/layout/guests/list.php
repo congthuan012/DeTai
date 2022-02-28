@@ -1,7 +1,8 @@
 <div class="menu-content">
   <div class="search-container">
     <form action="" method="POST" class="d-flex form-search">
-      <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="guest name..." />
+      <input type="number" min="0" class="input-form" value="<?=$_POST['search_id']??''?>" name="search_id" placeholder="Guest id..." />
+      <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="Guest name..." />
       <button class="btn btn-blue btn-search">Search</button>
       <a href="<?=URL.'/guests/list'?>" class=""><i class="fas fa-sync"></i></a>
       <a href="<?=URL.'/guests/create'?>" class="btn btn-green btn-create">Create new</a>

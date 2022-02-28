@@ -41,10 +41,17 @@ if (count($errors) > 0) {
     ]);
 }else{
     $id = $product['id'];
-    $description = $_POST['description'];
-    $updated_by = (int)$_SESSION['user']['id'];
-    $fields = '`name` = ?,`description`= ?,`updated_by`= ?,`updated_at` = ?';
-    $params = [$name,$description,$updated_by,date('Y-m-d H:i:s')];
+    // $description = $_POST['description'];
+    // $updated_by = (int)$_SESSION['user']['id'];
+    // $fields = '`name` = ?,`description`= ?,`updated_by`= ?,`updated_at` = ?';
+    // $params = [$name,$description,$updated_by,date('Y-m-d H:i:s')];
+    $values = [
+        'name' => $name,
+        'description' => $_POST['description'],
+        'avatar' =>$path,
+        'updated_by' => (int)$_SESSION['user']['id'],
+        'updated_at' => date('Y-m-d H:i:s'),
+    ];
     if(file_exists($_FILES['image']['tmp_name']))
     {
         $image = $_FILES['image'];
@@ -54,13 +61,15 @@ if (count($errors) > 0) {
         }
         $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
         move_uploaded_file($image['tmp_name'],'./'.$path);
-        $fields .= ',`avatar` = ?';
-        array_push($params,$path);
+        $values['avatar'] = $path;
+        // $fields .= ',`avatar` = ?';
+        // array_push($params,$path);
     }
-    $pdo = connectDb();
-    $sql = "UPDATE producers SET $fields WHERE id = $id";
-    $res = save($pdo,$sql,$params);
+    // $pdo = connectDb();
+    // $sql = "UPDATE producers SET $fields WHERE id = $id";
+    // $res = save($pdo,$sql,$params);
 
+    $res = update('producers',$values,$id);
     //Close connect
     $pdo = null;
     $sql = null;

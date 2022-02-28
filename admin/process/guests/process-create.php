@@ -33,19 +33,29 @@ if (count($errors) > 0) {
         'errors' => $errors
 ]);
 }else{
-    $name = $_POST['name'];
-    $username = 'guest_'.trim($_POST['username']);
-    $status = $_POST['status']??0;
-    $password = password_hash($_POST['username'],PASSWORD_DEFAULT);
-    $address = $_POST['address'];
+    // $name = $_POST['name'];
+    // $username = 'guest_'.trim($_POST['username']);
+    // $status = $_POST['status']??0;
+    // $password = password_hash($_POST['username'],PASSWORD_DEFAULT);
+    // $address = $_POST['address'];
     $image = $_FILES['image'];
     $dir = 'assets/img/guests-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
-    $pdo = connectDb();
-    $sql = "INSERT INTO guests(`name`,`username`,`status`,`password`,`address`,`avatar`,`created_at`) 
-    VALUES(?,?,?,?,?,?,?)";
-    $res = save($pdo,$sql,[$name,$username,$status,$password,$address,$path,date('Y-m-d H:i:s')]);
+    // $pdo = connectDb();
+    // $sql = "INSERT INTO guests(`name`,`username`,`status`,`password`,`address`,`avatar`,`created_at`) 
+    // VALUES(?,?,?,?,?,?,?)";
+    // $res = save($pdo,$sql,[$name,$username,$status,$password,$address,$path,date('Y-m-d H:i:s')]);
+    $values = [
+        'name' => $_POST['name'],
+        'username' => 'guest_'.trim($_POST['username']),
+        'status' => $_POST['status']??0,
+        'password' => password_hash($_POST['username'],PASSWORD_DEFAULT),
+        'address' =>  $_POST['address'],
+        'avatar' => $path,
+        'created_at' => date('Y-m-d H:i:s'),
+    ];
+    $res = insert('guests',$values);
     if($res['code'] == 200){
         redirect('guests/create',[
             'msg'=>'Create success!',

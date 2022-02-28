@@ -2,6 +2,10 @@
 <div class="menu-content">
   <div class="search-container">
     <form action="" method="POST" style="height: 40px;" class="form-search">
+      <input min="0" type="number" class="input-form" value="<?=$_POST['search_id']??''?>" name="search_id" placeholder="Category Id..." />
+      <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="Category name..." />
+      <button class="btn btn-blue btn-search">Search</button>
+      <a href="<?=URL.'/categories/list'?>" class=""><i class="fas fa-sync"></i></a>
       <a href="<?=URL.'/categories/create'?>" class="btn btn-green btn-create">Create new</a>
     </form>
   </div>

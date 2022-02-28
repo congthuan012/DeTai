@@ -30,6 +30,12 @@ if(isset($_POST['search_name']) && $_POST['search_name'])
   $where .= " AND p.name like '%{$name}%'";
 }
 
+if(isset($_POST['search_id']) && $_POST['search_id'])
+{
+  $id = (string)$_POST['search_id'];
+  $where .= " AND p.id = $id";
+}
+
 if(isset($_POST['search_category']) && $_POST['search_category'])
 {
   $category = $_POST['search_category'];

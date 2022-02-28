@@ -39,11 +39,20 @@ if (count($errors) > 0) {
         'errors' => $errors
     ]);
 }else{
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $status = $_POST['status']??0;
-    $fields = '`name` = ?,`username` = ?,`status` = ?,`updated_at` = ?';
-    $params = [$name,$username,$status,date('Y-m-d H:i:s')];
+    // $name = $_POST['name'];
+    // $username = $_POST['username'];
+    // $status = $_POST['status']??0;
+    // $fields = '`name` = ?,`username` = ?,`status` = ?,`updated_at` = ?';
+    // $params = [$name,$username,$status,date('Y-m-d H:i:s')];
+    // $pdo = connectDb();
+    // $sql = "UPDATE admins SET $fields WHERE id = $id";
+    // $res = save($pdo,$sql,$params);
+    $values = [
+        'name' => $_POST['name'],
+        'username' => $_POST['username'],
+        'status' => $_POST['status']??0,
+        'updated_at' => date('Y-m-d H:i:s'),
+    ];
     if(file_exists($_FILES['image']['tmp_name']))
     {
         $image = $_FILES['image'];
@@ -53,13 +62,9 @@ if (count($errors) > 0) {
         }
         $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
         move_uploaded_file($image['tmp_name'],'./'.$path);
-        $fields .= ',`avatar` = ?';
-        array_push($params,$path);
+        $values['avatar'] = $path;
     }
-    $pdo = connectDb();
-    $sql = "UPDATE admins SET $fields WHERE id = $id";
-    $res = save($pdo,$sql,$params);
-
+    $res = update('admins',$values,$id);
     //Close connect
     $pdo = null;
     $sql = null;

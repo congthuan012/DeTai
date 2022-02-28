@@ -39,11 +39,22 @@ if (count($errors) > 0) {
         'errors' => $errors
     ]);
 }else{
+    // $description = $_POST['description'];
+    // $updated_by = (int)$_SESSION['user']['id'];
+    // $fields = '`name` = ?,`description`= ?,`updated_by`= ?,`updated_at` = ?';
+    // $params = [$name,$description,$updated_by,date('Y-m-d H:i:s')];
+    // $fields .= ',`avatar` = ?';
+    // array_push($params,$path);
+    // $pdo = connectDb();
+    // $sql = "UPDATE categories SET $fields WHERE id = $id";
+    // $res = save($pdo,$sql,$params);
     $id = $product['id'];
-    $description = $_POST['description'];
-    $updated_by = (int)$_SESSION['user']['id'];
-    $fields = '`name` = ?,`description`= ?,`updated_by`= ?,`updated_at` = ?';
-    $params = [$name,$description,$updated_by,date('Y-m-d H:i:s')];
+    $values = [
+        'name' => $_POST['name'],
+        'description' => $_POST['description'],
+        'updated_by' => (int)$_SESSION['user']['id'],
+        'updated_at' => date('Y-m-d H:i:s'),
+    ];
     if(file_exists($_FILES['image']['tmp_name']))
     {
         $image = $_FILES['image'];
@@ -53,13 +64,9 @@ if (count($errors) > 0) {
         }
         $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
         move_uploaded_file($image['tmp_name'],'./'.$path);
-        $fields .= ',`avatar` = ?';
-        array_push($params,$path);
+        $values['avatar'] = $path;
     }
-    $pdo = connectDb();
-    $sql = "UPDATE categories SET $fields WHERE id = $id";
-    $res = save($pdo,$sql,$params);
-
+    $res = update('categories',$values,$id);
     //Close connect
     $pdo = null;
     $sql = null;

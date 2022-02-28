@@ -39,12 +39,21 @@ if (count($errors) > 0) {
         'errors' => $errors
     ]);
 }else{
-    $name = $_POST['name'];
-    $username = 'guest_'.trim($_POST['username']);
-    $status = $_POST['status']??0;
-    $address = $_POST['address'];
-    $fields = '`name` = ?,`username` = ?,`status` = ?,`address` = ?,`updated_at` = ?';
-    $params = [$name,$username,$status,$address,date('Y-m-d H:i:s')];
+    // $name = $_POST['name'];
+    // $username = 'guest_'.trim($_POST['username']);
+    // $status = $_POST['status']??0;
+    // $address = $_POST['address'];
+    // $fields = '`name` = ?,`username` = ?,`status` = ?,`address` = ?,`updated_at` = ?';
+    // $params = [$name,$username,$status,$address,date('Y-m-d H:i:s')];
+    $values = [
+        'name' => $_POST['name'],
+        'username' => 'guest_'.trim($_POST['username']),
+        'status' => $_POST['status']??0,
+        'password' => password_hash($_POST['username'],PASSWORD_DEFAULT),
+        'address' =>  $_POST['address'],
+        'avatar' => $path,
+        'updated_at' => date('Y-m-d H:i:s'),
+    ];
     if(file_exists($_FILES['image']['tmp_name']))
     {
         $image = $_FILES['image'];
@@ -54,13 +63,15 @@ if (count($errors) > 0) {
         }
         $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
         move_uploaded_file($image['tmp_name'],'./'.$path);
-        $fields .= ',`avatar` = ?';
-        array_push($params,$path);
+        $values['avatar'] = $path;
+        // $fields .= ',`avatar` = ?';
+        // array_push($params,$path);
     }
-    $pdo = connectDb();
-    $sql = "UPDATE guests SET $fields WHERE id = $id";
-    $res = save($pdo,$sql,$params);
+    // $pdo = connectDb();
+    // $sql = "UPDATE guests SET $fields WHERE id = $id";
+    // $res = save($pdo,$sql,$params);
 
+    $res = update('guests',$values,$id);
     //Close connect
     $pdo = null;
     $sql = null;

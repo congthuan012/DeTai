@@ -25,10 +25,17 @@ if($totalPages>1)
 //Câu truy vấn
 //Tìm kiếm
 $where = 'deleted_at is NULL';
+$params = [];
 if(isset($_POST['search_name']) && $_POST['search_name'])
 {
-  $name = (string)$_POST['search_name'];
-  $where .= " AND name like '%{$name}%'";
+  $params[] = (string)$_POST['search_name'];
+  $where .= " AND name like CONCAT('%',?,'%')";
+}
+
+if(isset($_POST['search_id']) && $_POST['search_id'])
+{
+  $params[] = (string)$_POST['search_id'];
+  $where .= " AND id like ?";
 }
 
 $sql = "SELECT `id`,`name`,`username`,`avatar`,`status`
@@ -36,7 +43,7 @@ FROM guests
 WHERE $where
 LIMIT $itemsPerPage OFFSET $offset";
 
-$res = loadRows($pdo,$sql);
+$res = loadRows($pdo,$sql,$params);
 if($res['code'] == 500){
  dump('Có lỗi xảy ra: '.$res['data']);
 }

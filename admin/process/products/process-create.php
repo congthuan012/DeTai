@@ -35,20 +35,31 @@ if (count($errors) > 0) {
         'errors' => $errors
 ]);
 }else{
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $category_id = $_POST['category'];
-    $producer_id = $_POST['producer'];
-    $description = $_POST['description'];
-    $creator = (int)$_SESSION['user']['id'];
+    // $name = $_POST['name'];
+    // $price = $_POST['price'];
+    // $category_id = $_POST['category'];
+    // $producer_id = $_POST['producer'];
+    // $description = $_POST['description'];
+    // $creator = (int)$_SESSION['user']['id'];
     $image = $_FILES['image'];
     $dir = 'assets/img/products-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
-    $pdo = connectDb();
-    $sql = "INSERT INTO products(`name`,`price`,`category_id`,`producer_id`,`description`,`avatar`,`created_by`,`created_at`) 
-    VALUES(?,?,?,?,?,?,?,?)";
-    $res = save($pdo,$sql,[$name,$price,$category_id,$producer_id,$description,$path,$creator,date('Y-m-d H:i:s')]);
+    // $pdo = connectDb();
+    // $sql = "INSERT INTO products(`name`,`price`,`category_id`,`producer_id`,`description`,`avatar`,`created_by`,`created_at`) 
+    // VALUES(?,?,?,?,?,?,?,?)";
+    // $res = save($pdo,$sql,[$name,$price,$category_id,$producer_id,$description,$path,$creator,date('Y-m-d H:i:s')]);
+    $values = [
+        'name'=>$_POST['name'],
+        'price'=>$_POST['price'],
+        'category_id'=>$_POST['category'],
+        'producer_id'=>$_POST['producer'],
+        'description'=>$_POST['avatar'],
+        'avatar'=>$path,
+        'created_by'=>(int)$_SESSION['user']['id'],
+        'created_at'=>date('Y-m-d H:i:s'),
+    ];
+    $res = insert('products',$values);
     if($res['code'] == 200){
         redirect('products/create',[
             'msg'=>'Create success!',

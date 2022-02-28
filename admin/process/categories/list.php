@@ -21,10 +21,28 @@ if($totalItems % $itemsPerPage > 0){
 }
 //Item bắt đầu của trang hiện tại
 $offset = ($currentPage - 1) * $itemsPerPage;
+$params = [];
 $sql = "SELECT * 
 FROM categories 
-WHERE deleted_at is NULL
-LIMIT $itemsPerPage OFFSET $offset
+WHERE deleted_at is NULL";
+
+if(isset($_POST['search_name']) && $_POST['search_name'])
+{
+  $params[] = (string)$_POST['search_name'];
+  $sql .= " AND name like CONCAT('%',?,'%')";
+}
+
+if(isset($_POST['search_id']) && $_POST['search_id'])
+{
+  $params[] = (string)$_POST['search_id'];
+  $sql .= " AND id like ?";
+}
+
+$sql.=" LIMIT $itemsPerPage OFFSET $offset
 ";
-$categories = loadRows($pdo,$sql)['data'];
+$res = loadRows($pdo,$sql,$params);
+$categories = '';
+if($res['code'] == 200){
+  $categories = $res['data'];
+}
 require_once './layout/categories/list.php';

@@ -1,6 +1,13 @@
 <?php
 $id = (int)$params[0];
 $pdo = connectDb();
+if($_SESSION['user']['id'] == $id){
+    redirect('admins/list',[
+        'code' => 500,
+        'msg' => 'Can\'t delete your account'
+    ]);
+    exit();
+}
 $product = find('id',$id,'admins')['data'];
 if(!$product){
     redirect('/admins/list',[

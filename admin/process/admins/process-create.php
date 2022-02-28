@@ -33,18 +33,28 @@ if (count($errors) > 0) {
         'errors' => $errors
 ]);
 }else{
-    $name = $_POST['name'];
-    $username = $_POST['username'];
-    $status = $_POST['status']??0;
-    $password = password_hash($_POST['username'],PASSWORD_DEFAULT);
+   
+    // $name = $_POST['name'];
+    // $username = $_POST['username'];
+    // $status = $_POST['status']??0;
+    // $password = password_hash($_POST['username'],PASSWORD_DEFAULT);
     $image = $_FILES['image'];
     $dir = 'assets/img/admins-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
-    $pdo = connectDb();
-    $sql = "INSERT INTO admins(`name`,`username`,`status`,`password`,`avatar`,`created_at`) 
-    VALUES(?,?,?,?,?,?,?)";
-    $res = save($pdo,$sql,[$name,$username,$status,$password,$path,date('Y-m-d H:i:s')]);
+    // $pdo = connectDb();
+    // $sql = "INSERT INTO admins(`name`,`username`,`status`,`password`,`avatar`,`created_at`) 
+    // VALUES(?,?,?,?,?,?,?)";
+    // $res = save($pdo,$sql,[$name,$username,$status,$password,$path,date('Y-m-d H:i:s')]);
+    $values = [
+        'name' => $_POST['name'],
+        'username' => $_POST['username'],
+        'status' => $_POST['status']??0,
+        'password' => password_hash($_POST['username'],PASSWORD_DEFAULT),
+        'avatar' => $path,
+        'created_at' => date('Y-m-d H:i:s'),
+    ];
+    $res = insert('admins', $values);
     if($res['code'] == 200){
         redirect('admins/create',[
             'msg'=>'Create success!',

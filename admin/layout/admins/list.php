@@ -1,6 +1,7 @@
 <div class="menu-content">
   <div class="search-container">
     <form action="" method="POST" class="d-flex form-search">
+      <input type="number" min="0" class="input-form" value="<?=$_POST['search_id']??''?>" name="search_id" placeholder="Admin id..." />
       <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="Admin name..." />
       <button class="btn btn-blue btn-search">Search</button>
       <a href="<?=URL.'/admins/list'?>" class=""><i class="fas fa-sync"></i></a>

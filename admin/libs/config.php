@@ -6,9 +6,9 @@ session_start();
 ob_start();
 define('HOST', 'localhost');
 define('PORT', '3306');
-define('DBNAME', 'DeTai');
-define('USERNAME', 'thuan');
-define('PASSWORD', 'Thuan@123');
+define('DBNAME', 'detai');
+define('USERNAME', 'root');
+define('PASSWORD', '');
 define('OPTION', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 define('URL', 'http://' .$_SERVER['SERVER_NAME']. $_SERVER['SCRIPT_NAME'] . '/../../admin');
 define('ORDER_STATUS', [
