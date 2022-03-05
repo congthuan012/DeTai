@@ -46,6 +46,7 @@ if(count($errors) > 0){
 }
 $value['username'] = $_POST['username'];
 $value['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$value['status'] = 1;
 $value['created_at'] = date('Y-m-d H:i:s');
 $res = insert('guests', $value);
 

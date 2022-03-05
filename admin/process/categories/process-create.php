@@ -32,16 +32,16 @@ if(count($errors)>0){
     // $name = $_POST['name'];
     // $description = $_POST['description'];
     // $creator = (int)$_SESSION['user']['id'];
-    // $image = $_FILES['image'];
+    $image = $_FILES['image'];
 
     $dir = 'assets/img/categories-image/';
     $path = str_replace(' ','-',trim($dir.date('Y-m-d-H').'-'.$image['name']));
     move_uploaded_file($image['tmp_name'],'./'.$path);
     $values = [
-        'name' => $name,
-        'description' => $description,
+        'name' => $_POST['name'],
+        'description' => $_POST['description'],
         'avatar' => $path,
-        'created_by' => $creator,
+        'created_by' => (int)$_SESSION['user']['id'],
         'created_at' => date('Y-m-d H:i:s'),
     ];
     // $pdo = connectDb();

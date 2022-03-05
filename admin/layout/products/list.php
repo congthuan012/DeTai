@@ -1,12 +1,12 @@
 <div class="menu-content">
   <div class="search-container">
-    <form action="" method="POST" class="d-flex form-search">
-      <input min="0" type="number" class="input-form" value="<?=$_POST['search_id']??''?>" name="search_id" placeholder="Product Id..." />
-      <input type="text" class="input-form" value="<?=$_POST['search_name']??''?>" name="search_name" placeholder="Product name..." />
+    <form action="" method="GET" class="d-flex form-search">
+      <input min="0" type="number" class="input-form" value="<?=$_GET['search_id']??''?>" name="search_id" placeholder="Product Id..." />
+      <input type="text" class="input-form" value="<?=$_GET['search_name']??''?>" name="search_name" placeholder="Product name..." />
       <select name="search_category" class="input-form" id="">
         <option value="" disabled selected>Product category</option>
         <?php foreach($categories as $category): ?>
-          <option <?= isset($_POST['search_category']) && $_POST['search_category'] == $category['id']?'selected':'' ?> value="<?=$category['id']?>"><?=$category['name']?></option>
+          <option <?= isset($_GET['search_category']) && $_GET['search_category'] == $category['id']?'selected':'' ?> value="<?=$category['id']?>"><?=$category['name']?></option>
         <?php endforeach ?>
       </select>
       <button class="btn btn-blue btn-search">Search</button>
@@ -39,7 +39,7 @@
             <img src="<?=asset($product['avatar']&&$product['avatar']!=''?$product['avatar']:'assets/img/no-image.png')?>" alt="" />
           </td>
           <td class="item-name"><?= $product['name']??'' ?></td>
-          <td class="item-category"><?= find('id',$product['category_id'],'categories')['data']['name']??'(Chưa phân loại)' ?></td>
+          <td class="item-category"><?= $product['category']??'(Chưa phân loại)' ?></td>
           <td class="item-price"><?= number_format($product['price'])??'' ?></td>
 
           <td class="action">
@@ -53,39 +53,10 @@
       </tbody>
     </table>
   </div>
-  <div>
-    <?php if($totalPages>1) {?>
-    <ul class="paginate">
-      <?php
-      $href = 'javascript:void(0)';
-      if($currentPage > 1)
-      {
-        $page = $currentPage - 1;
-        $href = URL.'/products/list/'.$page;
-      }
-      ?>
-      <li>
-        <a href="<?=$href?>"><span class="previous-page"><i class="fas fa-chevron-left"></i></span></a>
-      </li>
-      <?php for($i = 1;$i < $totalPages + 1; $i++ ) {?>
-      <li>
-        <a href="<?=$href = URL.'/products/list/'.$i?>"><span class="page-number <?=$currentPage == $i?'choose':''?>"><?=$i?></span></a>
-      </li>
-      <?php
-      }
-      $href = 'javascript:void(0)';
-      if($currentPage < $totalPages)
-      {
-        $page = $currentPage + 1;
-        $href = URL.'/products/list/'.$page;
-      }
-      ?>
-      <li>
-        <a href="<?=$href?>"><span class="next-page"><i class="fas fa-chevron-right"></i></span></a>
-      </li>
-    </ul>
-    <?php } ?>
-  </div>
+  <?php 
+    /** Paginate */
+    require_once './layout/widgets/paginate.php';
+  ?>
 </div>
 <?php
 require_once './layout/widgets/modal-confirm.php';

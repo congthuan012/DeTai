@@ -13,7 +13,7 @@ function urlProcess(){
 
 function dump($arr)
 {
-    echo '<pre>',var_dump($arr),'</pre>';
+    echo '<pre>',print_r($arr),'</pre>';
     exit;
 }
 

@@ -14,14 +14,15 @@ if(!isset($_SESSION['cart'])) {
         'code' => 500,
         'msg' => 'Your cart is empty!'
     ]);
+    exit;
 }
-$cart = $_SESSION['cart'];
 
 if(!isset($_POST['address']) || !$_POST['address']){
     redirectGuest('/cart/checkout',[
         'code' => 500,
         'msg' => 'Please enter your address!'
     ]);
+    exit;
 }
 
 if(!isset($_POST['phone']) || !$_POST['phone']){
@@ -29,7 +30,9 @@ if(!isset($_POST['phone']) || !$_POST['phone']){
         'code' => 500,
         'msg' => 'Please enter your phone number!'
     ]);
+    exit;
 }
+$cart = $_SESSION['cart'];
 if(!isset($_POST['total']) || !$_POST['total'] == 0){
     $total = 0;
     foreach($cart as $key => $value){
@@ -47,15 +50,16 @@ $values = [
     'created_at' => date('Y-m-d H:i:s'),
 ];
 
-$sql = 'SELECT @@IDENTITY "id";';
+// $sql = 'SELECT @@IDENTITY "id";';
 
-$res = insert('orders', $values, $sql);
+$res = insert('orders', $values);
 
 if($res['code'] != 200){
     redirectGuest('/cart/checkout',[
         'code' => 500,
         'msg' => 'Server error!'
     ]);
+    exit;
 }
 
 $order_id = $res['data'];
@@ -74,6 +78,7 @@ foreach($cart as $key => $value){
             'code' => 500,
             'msg' => 'Server error!'
         ]);
+        exit;
     }
 }
 $_SESSION['cart'] = null;
